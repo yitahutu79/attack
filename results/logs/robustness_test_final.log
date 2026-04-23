@@ -1,0 +1,11 @@
+Logging to results/logs/robustness_test_final.log
+Run started at 2026-04-21 02:13:04
+Loading data...
+Loading model from results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_225204/ckpt_w128_s16.pt...
+Calibrating threshold...
+Calibrated threshold: 0.592022 (target FPR: 0.05)
+
+Running scenario: Clean
+F1: 0.7976, Recall: 0.6670, FPR: 0.0040
+
+Running scenario: Noise 1%

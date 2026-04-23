@@ -1,0 +1,29 @@
+Logging to results/logs/robustness_test.log
+Run started at 2026-04-20 01:03:45
+Loading data...
+Loading model from results/final_experiments/20260414_132416/seed_runs/seed_43/ckpt_w128_s16_seed43.pt...
+Calibrating threshold...
+Calibrated threshold: 0.413265 (target FPR: 0.05)
+
+Running scenario: Clean
+F1: 0.2853, Recall: 0.1810, FPR: 0.0641
+
+Running scenario: Noise 1%
+F1: 0.5189, Recall: 0.3782, FPR: 0.0584
+
+Running scenario: Noise 3%
+F1: 0.5652, Recall: 0.4190, FPR: 0.0466
+
+Running scenario: Noise 5%
+F1: 0.6787, Recall: 0.5518, FPR: 0.0545
+
+Running scenario: Mask 5%
+F1: 0.7174, Recall: 0.5969, FPR: 0.0492
+
+Running scenario: Mask 10%
+F1: 0.7817, Recall: 0.6976, FPR: 0.0639
+
+Running scenario: Mask 20%
+F1: 0.7692, Recall: 0.7390, FPR: 0.1337
+
+Results saved to results/robustness_tests/robustness_results.json

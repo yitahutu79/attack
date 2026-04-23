@@ -1,0 +1,62 @@
+
+============================================================
+加载数据
+============================================================
+train windows 1/1:   0%|          | 0/1703 [00:00<?, ?it/s]                                                           test windows 1/1:   0%|          | 0/1098 [00:00<?, ?it/s]                                                          Loaded swat: train_windows=1703, test_windows=1098, test_anom_ratio=1.0000, features=71
+
+============================================================
+开始运行 7 个baseline方法
+============================================================
+
+[1/7] IsolationForest
+
+============================================================
+运行 IsolationForest baseline
+============================================================
+训练集形状: (1703, 9088)
+测试集形状: (1098, 9088)
+训练 IsolationForest...
+预测...
+AUC: nan, AP: 1.0000
+标定阈值 (target_fpr=0.05): 0.069640
+Calib F1: 0.9113, Recall: 0.8370, Precision: 1.0000
+Train BENIGN FPR: 0.0505
+Test BENIGN FPR: nan
+
+[2/7] OneClassSVM
+
+============================================================
+运行 OneClassSVM baseline (优化版)
+============================================================
+原始训练集形状: (1703, 9088)
+原始测试集形状: (1098, 9088)
+PCA降维: 9088 -> 100
+PCA解释方差比: 0.8424
+最终训练集形状: (1703, 100)
+最终测试集形状: (1098, 100)
+训练 OneClassSVM...
+预测...
+AUC: nan, AP: 1.0000
+标定阈值 (target_fpr=0.05): 2.158199
+Calib F1: 0.9913, Recall: 0.9827, Precision: 1.0000
+Train BENIGN FPR: 0.0505
+Test BENIGN FPR: nan
+
+[3/7] Random Forest
+
+============================================================
+运行 Random Forest baseline (窗口级)
+============================================================
+训练集形状: (1703, 9088)
+测试集形状: (1098, 9088)
+训练 Random Forest...
+RF Training:   0%|          | 0/100 [00:00<?, ?it/s]RF Training: 100%|██████████| 100/100 [00:00<00:00, 1554.53it/s]
+预测...
+Traceback (most recent call last):
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 1171, in <module>
+    main()
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 1089, in main
+    result = run_rf_baseline(
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 702, in run_rf_baseline
+    probs_test = model.predict_proba(X_test_flat)[:, 1]  # 异常类的概率
+IndexError: index 1 is out of bounds for axis 1 with size 1

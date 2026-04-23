@@ -1,0 +1,17 @@
+Starting missing baselines run at Mon Apr 20 01:36:38 CST 2026
+Running CICIDS2017 DeepSVDD and TranAD...
+Traceback (most recent call last):
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 26, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Running SWaT RF and MLP...
+Traceback (most recent call last):
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 26, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Running ToN_IoT RF and MLP...
+Traceback (most recent call last):
+  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 26, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Missing baselines run completed at Mon Apr 20 01:36:39 CST 2026

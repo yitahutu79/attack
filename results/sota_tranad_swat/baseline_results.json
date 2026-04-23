@@ -1,0 +1,19 @@
+[
+  {
+    "method": "TranAD",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.9799635701275046,
+    "ap": 0.9952813092963421,
+    "target_fpr": 0.05,
+    "calib_f1": 0.988516306844281,
+    "calib_recall": 0.9799635701275046,
+    "calib_precision": 0.9972196478220574,
+    "calib_threshold": 1.1941548347473145,
+    "train_benign_fpr": 0.050746268656716415,
+    "test_benign_fpr": 0.008955223880597015,
+    "eval_seconds": 79.92836928367615,
+    "n_train_windows": 1019,
+    "n_test_windows": 1433
+  }
+]

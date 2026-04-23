@@ -1,0 +1,47 @@
+
+============================================================
+加载数据
+============================================================
+chrono train windows:   0%|          | 0/37493 [00:00<?, ?it/s]chrono train windows:  80%|████████  | 30160/37493 [00:00<00:00, 301542.77it/s]                                                                               chrono calib windows:   0%|          | 0/6243 [00:00<?, ?it/s]                                                              chrono test windows:   0%|          | 0/18743 [00:00<?, ?it/s]                                                              Loaded ton_iot chrono unsupervised split: train_windows=37493, calib_windows=3870, test_windows=18743, test_anom_ratio=0.2976, features=10
+
+============================================================
+开始运行 1 个baseline方法
+============================================================
+
+[1/1] TranAD
+
+============================================================
+运行 TranAD baseline
+============================================================
+训练集形状: (37493, 128, 10)
+测试集形状: (18743, 128, 10)
+模型参数: d_model=64, nhead=4, num_layers=2
+训练 TranAD...
+Training TranAD:   0%|          | 0/30 [00:00<?, ?it/s]Training TranAD:   0%|          | 0/30 [01:30<?, ?it/s, loss=0.362720]TranAD epoch 1/30: loss=0.362720
+Training TranAD:   3%|▎         | 1/30 [01:30<43:42, 90.44s/it, loss=0.362720]Training TranAD:   3%|▎         | 1/30 [02:46<43:42, 90.44s/it, loss=0.227762]Training TranAD:   7%|▋         | 2/30 [02:46<38:10, 81.79s/it, loss=0.227762]Training TranAD:   7%|▋         | 2/30 [03:59<38:10, 81.79s/it, loss=0.185739]Training TranAD:  10%|█         | 3/30 [03:59<35:01, 77.83s/it, loss=0.185739]Training TranAD:  10%|█         | 3/30 [05:24<35:01, 77.83s/it, loss=0.160090]Training TranAD:  13%|█▎        | 4/30 [05:24<34:56, 80.62s/it, loss=0.160090]Training TranAD:  13%|█▎        | 4/30 [06:37<34:56, 80.62s/it, loss=0.140046]TranAD epoch 5/30: loss=0.140046
+Training TranAD:  17%|█▋        | 5/30 [06:37<32:27, 77.88s/it, loss=0.140046]Training TranAD:  17%|█▋        | 5/30 [07:49<32:27, 77.88s/it, loss=0.122178]Training TranAD:  20%|██        | 6/30 [07:49<30:27, 76.14s/it, loss=0.122178]Training TranAD:  20%|██        | 6/30 [09:01<30:27, 76.14s/it, loss=0.102388]Training TranAD:  23%|██▎       | 7/30 [09:01<28:33, 74.51s/it, loss=0.102388]Training TranAD:  23%|██▎       | 7/30 [10:12<28:33, 74.51s/it, loss=0.086875]Training TranAD:  27%|██▋       | 8/30 [10:12<26:58, 73.57s/it, loss=0.086875]Training TranAD:  27%|██▋       | 8/30 [11:25<26:58, 73.57s/it, loss=0.114366]Training TranAD:  30%|███       | 9/30 [11:25<25:36, 73.19s/it, loss=0.114366]Training TranAD:  30%|███       | 9/30 [12:37<25:36, 73.19s/it, loss=0.126415]TranAD epoch 10/30: loss=0.126415
+Training TranAD:  33%|███▎      | 10/30 [12:37<24:16, 72.84s/it, loss=0.126415]Training TranAD:  33%|███▎      | 10/30 [13:48<24:16, 72.84s/it, loss=0.061569]Training TranAD:  37%|███▋      | 11/30 [13:48<22:57, 72.50s/it, loss=0.061569]Training TranAD:  37%|███▋      | 11/30 [14:59<22:57, 72.50s/it, loss=0.049145]Training TranAD:  40%|████      | 12/30 [14:59<21:37, 72.08s/it, loss=0.049145]Training TranAD:  40%|████      | 12/30 [16:11<21:37, 72.08s/it, loss=0.037502]Training TranAD:  43%|████▎     | 13/30 [16:11<20:21, 71.86s/it, loss=0.037502]Training TranAD:  43%|████▎     | 13/30 [17:22<20:21, 71.86s/it, loss=0.028140]Training TranAD:  47%|████▋     | 14/30 [17:22<19:07, 71.73s/it, loss=0.028140]Training TranAD:  47%|████▋     | 14/30 [18:34<19:07, 71.73s/it, loss=0.022767]TranAD epoch 15/30: loss=0.022767
+Training TranAD:  50%|█████     | 15/30 [18:34<17:54, 71.65s/it, loss=0.022767]Training TranAD:  50%|█████     | 15/30 [19:46<17:54, 71.65s/it, loss=0.019380]Training TranAD:  53%|█████▎    | 16/30 [19:46<16:44, 71.74s/it, loss=0.019380]Training TranAD:  53%|█████▎    | 16/30 [20:57<16:44, 71.74s/it, loss=0.012745]Training TranAD:  57%|█████▋    | 17/30 [20:57<15:29, 71.50s/it, loss=0.012745]Training TranAD:  57%|█████▋    | 17/30 [22:11<15:29, 71.50s/it, loss=0.013240]Training TranAD:  60%|██████    | 18/30 [22:11<14:29, 72.44s/it, loss=0.013240]Training TranAD:  60%|██████    | 18/30 [23:22<14:29, 72.44s/it, loss=0.010637]Training TranAD:  63%|██████▎   | 19/30 [23:22<13:12, 72.06s/it, loss=0.010637]Training TranAD:  63%|██████▎   | 19/30 [24:33<13:12, 72.06s/it, loss=0.010401]TranAD epoch 20/30: loss=0.010401
+Training TranAD:  67%|██████▋   | 20/30 [24:33<11:56, 71.64s/it, loss=0.010401]Training TranAD:  67%|██████▋   | 20/30 [25:45<11:56, 71.64s/it, loss=0.007631]Training TranAD:  70%|███████   | 21/30 [25:45<10:45, 71.67s/it, loss=0.007631]Training TranAD:  70%|███████   | 21/30 [26:55<10:45, 71.67s/it, loss=0.009936]Training TranAD:  73%|███████▎  | 22/30 [26:55<09:28, 71.09s/it, loss=0.009936]Training TranAD:  73%|███████▎  | 22/30 [28:05<09:28, 71.09s/it, loss=0.010002]Training TranAD:  77%|███████▋  | 23/30 [28:05<08:15, 70.84s/it, loss=0.010002]Training TranAD:  77%|███████▋  | 23/30 [29:15<08:15, 70.84s/it, loss=0.007509]Training TranAD:  80%|████████  | 24/30 [29:15<07:04, 70.75s/it, loss=0.007509]Training TranAD:  80%|████████  | 24/30 [30:27<07:04, 70.75s/it, loss=0.014843]TranAD epoch 25/30: loss=0.014843
+Training TranAD:  83%|████████▎ | 25/30 [30:27<05:55, 71.11s/it, loss=0.014843]Training TranAD:  83%|████████▎ | 25/30 [31:37<05:55, 71.11s/it, loss=0.006679]Training TranAD:  87%|████████▋ | 26/30 [31:37<04:43, 70.83s/it, loss=0.006679]Training TranAD:  87%|████████▋ | 26/30 [32:50<04:43, 70.83s/it, loss=0.006700]Training TranAD:  90%|█████████ | 27/30 [32:50<03:34, 71.38s/it, loss=0.006700]Training TranAD:  90%|█████████ | 27/30 [34:01<03:34, 71.38s/it, loss=0.004523]Training TranAD:  93%|█████████▎| 28/30 [34:01<02:22, 71.29s/it, loss=0.004523]Training TranAD:  93%|█████████▎| 28/30 [35:12<02:22, 71.29s/it, loss=0.007245]Training TranAD:  97%|█████████▋| 29/30 [35:12<01:11, 71.24s/it, loss=0.007245]Training TranAD:  97%|█████████▋| 29/30 [36:23<01:11, 71.24s/it, loss=0.007780]TranAD epoch 30/30: loss=0.007780
+Training TranAD: 100%|██████████| 30/30 [36:23<00:00, 71.17s/it, loss=0.007780]Training TranAD: 100%|██████████| 30/30 [36:23<00:00, 72.79s/it, loss=0.007780]
+预测...
+AUC: 0.4406, AP: 0.2827
+标定阈值 (target_fpr=0.05): 0.012699
+Calib F1: 0.3058, Recall: 0.3210, Precision: 0.2921
+Train BENIGN FPR: 0.0501
+Test BENIGN FPR: 0.3296
+
+============================================================
+保存结果
+============================================================
+结果已保存到: attack/results/sota_tranad_toniot/baseline_results.json
+结果已保存到: attack/results/sota_tranad_toniot/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+   method       auc        ap  ...  calib_recall  test_benign_fpr  eval_seconds
+0  TranAD  0.440614  0.282655  ...      0.320961         0.329561   2213.198599
+
+[1 rows x 7 columns]

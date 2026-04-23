@@ -1,0 +1,71 @@
+Logging to results/logs/rf_mlp_swat_fixed.log
+Run started at 2026-04-20 01:46:18
+
+============================================================
+加载数据
+============================================================
+mixed train windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                                mixed train windows 2/2:   0%|          | 0/545 [00:00<?, ?it/s]                                                                mixed test windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                               mixed test windows 2/2:   0%|          | 0/546 [00:00<?, ?it/s]                                                               Loaded swat supervised mixed split: train_windows=1393, train_anom_ratio=0.3912, test_windows=1394, test_anom_ratio=0.3917, features=71
+
+============================================================
+开始运行 2 个baseline方法
+============================================================
+
+[1/2] Random Forest
+
+============================================================
+运行 Random Forest baseline (窗口级)
+============================================================
+训练集形状: (1393, 9088)
+测试集形状: (1394, 9088)
+训练 Random Forest...
+RF Training:   0%|          | 0/100 [00:00<?, ?it/s]RF Training: 100%|██████████| 100/100 [00:00<00:00, 654.23it/s]RF Training: 100%|██████████| 100/100 [00:00<00:00, 653.77it/s]
+预测...
+AUC: 0.9544, AP: 0.9631
+标定阈值 (target_fpr=0.05): 0.010000
+Calib F1: 0.6384, Recall: 0.9505, Precision: 0.4806
+Train BENIGN FPR: 0.0649
+Test BENIGN FPR: 0.6616
+
+[2/2] MLP
+
+============================================================
+运行 MLP baseline (窗口级)
+============================================================
+训练集形状: (1393, 9088)
+测试集形状: (1394, 9088)
+训练 MLP...
+Iteration 1, loss = 0.15926083
+Iteration 2, loss = 0.00020337
+Iteration 3, loss = 0.00017502
+Iteration 4, loss = 0.00017736
+Iteration 5, loss = 0.00017874
+Iteration 6, loss = 0.00017956
+Iteration 7, loss = 0.00017999
+Iteration 8, loss = 0.00018020
+Iteration 9, loss = 0.00018028
+Iteration 10, loss = 0.00018028
+Iteration 11, loss = 0.00018024
+Iteration 12, loss = 0.00018018
+Iteration 13, loss = 0.00018012
+Training loss did not improve more than tol=0.000100 for 10 consecutive epochs. Stopping.
+预测...
+AUC: 0.8165, AP: 0.8531
+标定阈值 (target_fpr=0.05): 0.000000
+Calib F1: 0.5776, Recall: 0.9066, Precision: 0.4238
+Train BENIGN FPR: 0.0507
+Test BENIGN FPR: 0.7936
+
+============================================================
+保存结果
+============================================================
+结果已保存到: results/sota_rf_mlp_swat_fixed/baseline_results.json
+结果已保存到: results/sota_rf_mlp_swat_fixed/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+         method       auc  ...  test_benign_fpr  eval_seconds
+0   RF (Window)  0.954417  ...         0.661557      0.220422
+1  MLP (Window)  0.816488  ...         0.793632      2.075534
+
+[2 rows x 7 columns]

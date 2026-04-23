@@ -1,0 +1,85 @@
+==========================================
+Cross-dataset minimal validation
+==========================================
+dataset:       swat
+data:          attack/dataset/SWaT
+out:           attack/results/cross_dataset_minimal/swat/20260417_164359
+window/stride: 128 / 16
+target_fpr:    0.05
+gan_loss:      vanilla
+score_mode:    prob
+
+[1/3] Listing available files
+attack_data/attack_samples_5sec.csv
+benign_data/benign_samples_5sec.csv
+
+[2/3] Running minimal Attentive TCN-GAN
+train windows 1/1:   0%|          | 0/1703 [00:00<?, ?it/s]                                                           test windows 1/1:   0%|          | 0/1098 [00:00<?, ?it/s]                                                          Loaded swat: train_windows=1703, test_windows=1098, test_anom_ratio=1.0000, features=71
+train ep1/1:   0%|          | 0/7 [00:00<?, ?it/s]train ep1/1:   0%|          | 0/7 [00:17<?, ?it/s, d=1.4, g=0.72]train ep1/1:  14%|█▍        | 1/7 [00:17<01:43, 17.21s/it, d=1.4, g=0.72]train ep1/1:  14%|█▍        | 1/7 [00:32<01:43, 17.21s/it, d=1.36, g=0.755]train ep1/1:  29%|██▊       | 2/7 [00:32<01:20, 16.08s/it, d=1.36, g=0.755]train ep1/1:  29%|██▊       | 2/7 [1:44:04<01:20, 16.08s/it, d=1.32, g=0.794]train ep1/1:  43%|████▎     | 3/7 [1:44:04<3:09:40, 2845.14s/it, d=1.32, g=0.794]train ep1/1:  43%|████▎     | 3/7 [2:00:14<3:09:40, 2845.14s/it, d=1.29, g=0.836]train ep1/1:  57%|█████▋    | 4/7 [2:00:14<1:45:15, 2105.14s/it, d=1.29, g=0.836]train ep1/1:  57%|█████▋    | 4/7 [2:00:30<1:45:15, 2105.14s/it, d=1.25, g=0.881]train ep1/1:  71%|███████▏  | 5/7 [2:00:30<45:03, 1351.64s/it, d=1.25, g=0.881]  train ep1/1:  71%|███████▏  | 5/7 [2:31:59<45:03, 1351.64s/it, d=1.21, g=0.934]train ep1/1:  86%|████████▌ | 6/7 [2:31:59<25:34, 1534.28s/it, d=1.21, g=0.934]train ep1/1:  86%|████████▌ | 6/7 [2:48:59<25:34, 1534.28s/it, d=1.16, g=0.995]train ep1/1: 100%|██████████| 7/7 [2:48:59<00:00, 1366.33s/it, d=1.16, g=0.995]                                                                               epoch 1/1: d_loss=1.2832, g_loss=0.8451, seconds=99.89
+Saved JSON: attack/results/cross_dataset_minimal/swat/20260417_164359/ours.json
+Calibrated: F1=0.8194, recall=0.6940, precision=1.0000, train_FPR=0.0505
+
+[3/3] Running classical baselines
+
+============================================================
+加载数据
+============================================================
+train windows 1/1:   0%|          | 0/1703 [00:00<?, ?it/s]                                                           test windows 1/1:   0%|          | 0/1098 [00:00<?, ?it/s]                                                          Loaded swat: train_windows=1703, test_windows=1098, test_anom_ratio=1.0000, features=71
+
+============================================================
+开始运行 2 个baseline方法
+============================================================
+
+[1/2] IsolationForest
+
+============================================================
+运行 IsolationForest baseline
+============================================================
+训练集形状: (1703, 9088)
+测试集形状: (1098, 9088)
+训练 IsolationForest...
+预测...
+AUC: nan, AP: 1.0000
+标定阈值 (target_fpr=0.05): 0.069640
+Calib F1: 0.9113, Recall: 0.8370, Precision: 1.0000
+Train BENIGN FPR: 0.0505
+Test BENIGN FPR: nan
+
+[2/2] OneClassSVM
+
+============================================================
+运行 OneClassSVM baseline (优化版)
+============================================================
+原始训练集形状: (1703, 9088)
+原始测试集形状: (1098, 9088)
+PCA降维: 9088 -> 100
+PCA解释方差比: 0.8424
+最终训练集形状: (1703, 100)
+最终测试集形状: (1098, 100)
+训练 OneClassSVM...
+预测...
+AUC: nan, AP: 1.0000
+标定阈值 (target_fpr=0.05): 2.158199
+Calib F1: 0.9913, Recall: 0.9827, Precision: 1.0000
+Train BENIGN FPR: 0.0505
+Test BENIGN FPR: nan
+
+============================================================
+保存结果
+============================================================
+结果已保存到: attack/results/cross_dataset_minimal/swat/20260417_164359/baselines/baseline_results.json
+结果已保存到: attack/results/cross_dataset_minimal/swat/20260417_164359/baselines/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+            method  auc   ap  ...  calib_recall  test_benign_fpr  eval_seconds
+0  IsolationForest  NaN  1.0  ...      0.836976              NaN      0.192934
+1      OneClassSVM  NaN  1.0  ...      0.982696              NaN      1.132658
+
+[2 rows x 7 columns]
+
+Done. Key outputs:
+  - attack/results/cross_dataset_minimal/swat/20260417_164359/ours.json
+  - attack/results/cross_dataset_minimal/swat/20260417_164359/baselines/baseline_results.csv
+  - attack/results/cross_dataset_minimal/swat/20260417_164359/files.txt

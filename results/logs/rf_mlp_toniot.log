@@ -1,0 +1,32 @@
+Logging to results/logs/rf_mlp_toniot.log
+Run started at 2026-04-20 01:42:52
+
+============================================================
+加载数据
+============================================================
+Loaded ton_iot chrono unsupervised split: train_windows=37493, calib_windows=3870, test_windows=18743, test_anom_ratio=0.2976, features=10
+
+============================================================
+开始运行 2 个baseline方法
+============================================================
+
+[1/2] Random Forest
+跳过 RF (Window): training labels contain only one class
+
+[2/2] MLP
+跳过 MLP (Window): training labels contain only one class
+
+============================================================
+保存结果
+============================================================
+结果已保存到: results/sota_rf_mlp_toniot/baseline_results.json
+结果已保存到: results/sota_rf_mlp_toniot/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+                                              method  auc  ...  test_benign_fpr  eval_seconds
+0  RF (Window) [skipped: training labels contain ...  NaN  ...              NaN           0.0
+1  MLP (Window) [skipped: training labels contain...  NaN  ...              NaN           0.0
+
+[2 rows x 7 columns]

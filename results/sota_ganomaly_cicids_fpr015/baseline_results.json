@@ -1,0 +1,36 @@
+[
+  {
+    "method": "GANomaly",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.7409215212226574,
+    "ap": 0.7706306633025732,
+    "target_fpr": 0.05,
+    "calib_f1": 0.7223269151986891,
+    "calib_recall": 0.7116947419406922,
+    "calib_precision": 0.7332815792392148,
+    "calib_threshold": 0.01029078015126288,
+    "train_benign_fpr": 0.05,
+    "test_benign_fpr": 0.18963885822425486,
+    "eval_seconds": 505.4863700866699,
+    "n_train_windows": 81600,
+    "n_test_windows": 43945
+  },
+  {
+    "method": "GANomaly",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.7409215212226574,
+    "ap": 0.7706306633025732,
+    "target_fpr": 0.15,
+    "calib_f1": 0.6585371825950684,
+    "calib_recall": 0.7236962488563586,
+    "calib_precision": 0.6041423308473358,
+    "calib_threshold": 0.006512701837345957,
+    "train_benign_fpr": 0.15,
+    "test_benign_fpr": 0.34738211638542815,
+    "eval_seconds": 505.4863700866699,
+    "n_train_windows": 81600,
+    "n_test_windows": 43945
+  }
+]

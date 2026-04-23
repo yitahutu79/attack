@@ -1,0 +1,18 @@
+\begin{table}[!t]
+  \centering
+  \caption{SWaT formal anomaly-detection split at the strict low-FPR operating point (target FPR 0.05).}
+  \label{tab:swat-unsup-formal}
+  \begin{tabular}{lccccc}
+    \toprule
+    Model & AUC & AP & F1 & Recall & Test FPR \\
+    \midrule
+    \model{} (SWaT) & 0.9904 & 0.9977 & 0.9950 & 0.9900 & 0.0000 \\
+    OneClassSVM & 0.9926 & 0.9982 & 0.9913 & 0.9827 & 0.0000 \\
+    LSTM-AE & 0.9800 & 0.9953 & 0.9867 & 0.9800 & 0.0209 \\
+    IsolationForest & 0.9861 & 0.9964 & 0.9768 & 0.9599 & 0.0179 \\
+    LSTM-AD & 0.8680 & 0.9661 & 0.8988 & 0.8288 & 0.0507 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Under the formal SWaT anomaly-detection protocol, \model{} recovers the low-FPR advantage that was obscured by the earlier mixed split. This suggests that the previous degradation was primarily caused by a protocol mismatch rather than a failure of temporal benign-pattern modeling itself.

@@ -1,0 +1,20 @@
+name: attack
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=1.26.4
+  - pandas
+  - scikit-learn
+  - scipy
+  - matplotlib
+  - pillow
+  - tqdm
+  - tabulate
+  - pip:
+      - torch==2.2.2
+      - torchvision==0.17.2
+      - torchaudio==2.2.2
+      - shap
+      - xgboost

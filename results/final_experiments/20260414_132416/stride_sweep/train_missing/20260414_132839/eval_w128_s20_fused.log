@@ -1,0 +1,14 @@
+train windows 1/4:   0%|          | 0/22276 [00:00<?, ?it/s]                                                            train 窗口完成 1/4：windows=22276 (0.18s)
+train windows 2/4:   0%|          | 0/34564 [00:00<?, ?it/s]                                                            train 窗口完成 2/4：windows=34564 (0.41s)
+train windows 3/4:   0%|          | 0/8506 [00:00<?, ?it/s]                                                           train 窗口完成 3/4：windows=8506 (0.05s)
+train windows 4/4:   0%|          | 0/14414 [00:00<?, ?it/s]                                                            train 窗口完成 4/4：windows=14414 (0.09s)
+test windows 1/3:   0%|          | 0/9540 [00:00<?, ?it/s]                                                          test 窗口完成 1/3：windows=9540 (0.08s)
+test windows 2/3:   0%|          | 0/11280 [00:00<?, ?it/s]                                                           test 窗口完成 2/3：windows=11280 (0.08s)
+test windows 3/3:   0%|          | 0/14299 [00:00<?, ?it/s]                                                           test 窗口完成 3/3：windows=14299 (0.14s)
+仅评估：AUC 0.8692，AP 0.7637
+- Eval 用时：6.49s | test_windows=35119 | 5409.0 windows/s
+- 评分方式：score_mode=fused(alpha=0.20)
+- 参考阈值（F1 最大）：0.221235
+- 参考指标：Precision 0.7669，Recall 0.9404，F1 0.8448，FPR 0.2095
+- 标定阈值（训练 BENIGN FPR≈0.050）：0.370676；Precision 0.5704，Recall 0.1612，F1 0.2514，FPR 0.0890（train_BENIGN_FPR 0.0500 | test_BENIGN_FPR 0.0890）
+已保存结果 JSON：attack/results/final_experiments/20260414_132416/stride_sweep/train_missing/20260414_132839/eval_w128_s20_fused.json

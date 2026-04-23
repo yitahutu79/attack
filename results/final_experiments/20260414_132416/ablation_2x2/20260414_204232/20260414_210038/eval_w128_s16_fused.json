@@ -1,0 +1,145 @@
+{
+  "task": "window_anomaly_detection",
+  "data_dir": "attack/dataset/CICIDS2017",
+  "train_files": [
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-workingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+  ],
+  "test_files": [
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+  ],
+  "window_size": 128,
+  "stride": 16,
+  "anomaly_ratio": 0.15,
+  "train_benign_only": true,
+  "load": "attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_210038/ckpt_w128_s16.pt",
+  "eval_only": true,
+  "disc_pooling": "attn",
+  "gan_loss": "vanilla",
+  "gp_lambda": 10.0,
+  "n_critic": 5,
+  "timing": {
+    "eval_seconds": 11.01198908299557,
+    "total_seconds": 66.78883941700042,
+    "n_train_windows": 81522,
+    "n_test_windows": 43897,
+    "eval_windows_per_sec": 3986.291638064246
+  },
+  "metrics": {
+    "auc": 0.8367473846364332,
+    "ap": 0.6871814009966162,
+    "best_f1_threshold": 0.3381671607494354,
+    "best_precision": 0.7153656466022558,
+    "best_recall": 0.9533455446611356,
+    "best_f1": 0.8173860828189748,
+    "best_fpr": 0.2779159265837774
+  },
+  "score_mode": "fused",
+  "score_alpha": 0.24,
+  "calibrated": {
+    "target_fpr": 0.05,
+    "threshold": 0.42217695713043213,
+    "precision": 0.6868494795836668,
+    "recall": 0.36973386488524945,
+    "f1": 0.4807032289692165,
+    "fpr": 0.12350503256364713,
+    "train_benign_fpr": 0.05,
+    "test_benign_fpr": 0.12350503256364713,
+    "n_train_benign_calib": 50000,
+    "n_test_benign": 25335
+  },
+  "scores_csv": "",
+  "xai": {
+    "enabled": true,
+    "method": "gradxinput",
+    "report_json": "attack/results/xai_tcn/eval_w128_s16_fused_w128_s16_fused_a0.24/xai_report.json",
+    "plot_time_importance": "attack/results/xai_tcn/eval_w128_s16_fused_w128_s16_fused_a0.24/xai_time_importance.png",
+    "plot_feature_importance": "attack/results/xai_tcn/eval_w128_s16_fused_w128_s16_fused_a0.24/xai_feature_importance.png",
+    "top_features_by_anomaly_importance": [
+      {
+        "feature": "Fwd Header Length",
+        "importance": 0.0014522613491863012
+      },
+      {
+        "feature": "Bwd Header Length",
+        "importance": 0.0012860056012868881
+      },
+      {
+        "feature": "Fwd Header Length.1",
+        "importance": 0.0012473056558519602
+      },
+      {
+        "feature": "min_seg_size_forward",
+        "importance": 0.001211790950037539
+      },
+      {
+        "feature": "Flow Packets/s",
+        "importance": 0.001076241722330451
+      },
+      {
+        "feature": "PSH Flag Count",
+        "importance": 0.000791223777923733
+      },
+      {
+        "feature": "Bwd Packet Length Std",
+        "importance": 0.0005949300830252469
+      },
+      {
+        "feature": "Init_Win_bytes_forward",
+        "importance": 0.000553435122128576
+      },
+      {
+        "feature": "ACK Flag Count",
+        "importance": 0.0005372833111323416
+      },
+      {
+        "feature": "Avg Bwd Segment Size",
+        "importance": 0.00033668914693407714
+      },
+      {
+        "feature": "Bwd Packet Length Mean",
+        "importance": 0.00031120370840653777
+      },
+      {
+        "feature": "Average Packet Size",
+        "importance": 0.00028014855342917144
+      },
+      {
+        "feature": "Packet Length Std",
+        "importance": 0.00024260295322164893
+      },
+      {
+        "feature": "Flow Bytes/s",
+        "importance": 0.0001841658668126911
+      },
+      {
+        "feature": "Bwd Packet Length Max",
+        "importance": 0.00014631965314038098
+      },
+      {
+        "feature": "Max Packet Length",
+        "importance": 0.00013600730744656175
+      },
+      {
+        "feature": "Packet Length Variance",
+        "importance": 0.00012466924090404063
+      },
+      {
+        "feature": "Packet Length Mean",
+        "importance": 0.00010439827747177333
+      },
+      {
+        "feature": "Destination Port",
+        "importance": 6.067909998819232e-05
+      },
+      {
+        "feature": "Idle Max",
+        "importance": 4.401786281960085e-05
+      }
+    ]
+  }
+}

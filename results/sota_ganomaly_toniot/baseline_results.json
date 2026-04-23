@@ -1,0 +1,19 @@
+[
+  {
+    "method": "GANomaly",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.4804889719938973,
+    "ap": 0.29807482311256495,
+    "target_fpr": 0.05,
+    "calib_f1": 0.23237863091610805,
+    "calib_recall": 0.20512820512820512,
+    "calib_precision": 0.267978449285547,
+    "calib_threshold": 0.061945971846580496,
+    "train_benign_fpr": 0.050129198966408266,
+    "test_benign_fpr": 0.23735379006531976,
+    "eval_seconds": 11.185802221298218,
+    "n_train_windows": 37493,
+    "n_test_windows": 18743
+  }
+]

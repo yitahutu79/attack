@@ -1,0 +1,63 @@
+Logging to results/logs/deepsvdd_tranad_cicids.log
+Run started at 2026-04-20 01:42:10
+
+============================================================
+加载数据
+============================================================
+加载数据: dataset/CICIDS2017
+训练文件: ['Tuesday-WorkingHours.pcap_ISCX.csv', 'Wednesday-workingHours.pcap_ISCX.csv', 'Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv', 'Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv']
+测试文件: ['Friday-WorkingHours-Morning.pcap_ISCX.csv', 'Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv', 'Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv']
+  加载 Tuesday-WorkingHours.pcap_ISCX.csv: 445909 行
+  加载 Wednesday-workingHours.pcap_ISCX.csv: 692703 行
+  加载 Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv: 170366 行
+  加载 Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv: 288602 行
+训练集总行数: 1597580
+  加载 Friday-WorkingHours-Morning.pcap_ISCX.csv: 191033 行
+  加载 Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv: 225745 行
+  加载 Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv: 286467 行
+测试集总行数: 703245
+训练集攻击比例: 0.1682
+测试集攻击比例: 0.4108
+特征数量: 77
+
+创建窗口 (window_size=128, stride=16)...
+训练窗口数: 81600 (benign_only=True)
+测试窗口数: 43945
+测试集异常比例: 0.4228
+
+============================================================
+开始运行 2 个baseline方法
+============================================================
+
+[1/2] DeepSVDD
+
+============================================================
+运行 DeepSVDD baseline
+============================================================
+训练集形状: (81600, 9856)
+测试集形状: (43945, 9856)
+模型参数: rep_dim=32
+训练 DeepSVDD...
+DeepSVDD epoch 1/10: loss=0.004804
+DeepSVDD epoch 5/10: loss=0.000000
+DeepSVDD epoch 10/10: loss=0.000000
+预测...
+AUC: 0.5000, AP: 0.4228
+标定阈值 (target_fpr=0.05): 0.000000
+Calib F1: 0.5943, Recall: 1.0000, Precision: 0.4228
+Train BENIGN FPR: 1.0000
+Test BENIGN FPR: 1.0000
+
+[2/2] TranAD
+
+============================================================
+运行 TranAD baseline
+============================================================
+训练集形状: (81600, 128, 77)
+测试集形状: (43945, 128, 77)
+模型参数: d_model=64, nhead=4, num_layers=2
+训练 TranAD...
+TranAD epoch 1/10: loss=0.267324
+TranAD epoch 5/10: loss=0.063792
+TranAD epoch 10/10: loss=0.049204
+预测...

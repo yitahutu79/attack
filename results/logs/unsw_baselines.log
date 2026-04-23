@@ -1,0 +1,187 @@
+Logging to attack/results/logs/unsw_baselines.log
+Run started at 2026-04-20 22:52:06
+
+============================================================
+加载数据
+============================================================
+Loaded unsw_nb15: train_windows=2988, test_windows=5138, test_anom_ratio=0.5535, features=39
+
+============================================================
+开始运行 7 个baseline方法
+============================================================
+
+[1/7] IsolationForest
+
+============================================================
+运行 IsolationForest baseline
+============================================================
+训练集形状: (2988, 4992)
+测试集形状: (5138, 4992)
+训练 IsolationForest...
+预测...
+AUC: 0.8327, AP: 0.8430
+标定阈值 (target_fpr=0.05): 0.017532
+Calib F1: 0.6621, Recall: 0.5665, Precision: 0.7967
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.1792
+标定阈值 (target_fpr=0.15): -0.015730
+Calib F1: 0.8272, Recall: 0.9856, Precision: 0.7127
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.4926
+
+[2/7] OneClassSVM
+
+============================================================
+运行 OneClassSVM baseline (优化版)
+============================================================
+原始训练集形状: (2988, 4992)
+原始测试集形状: (5138, 4992)
+PCA降维: 4992 -> 100
+PCA解释方差比: 0.3692
+最终训练集形状: (2988, 100)
+最终测试集形状: (5138, 100)
+训练 OneClassSVM...
+预测...
+AUC: 0.7576, AP: 0.8197
+标定阈值 (target_fpr=0.05): 4.051611
+Calib F1: 0.5298, Recall: 0.3787, Precision: 0.8813
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.0632
+标定阈值 (target_fpr=0.15): -1.460785
+Calib F1: 0.6178, Recall: 0.5081, Precision: 0.7879
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.1696
+
+[3/7] DeepSVDD
+
+============================================================
+运行 DeepSVDD baseline
+============================================================
+训练集形状: (2988, 4992)
+测试集形状: (5138, 4992)
+模型参数: rep_dim=32
+训练 DeepSVDD...
+DeepSVDD epoch 1/10: loss=0.111914
+DeepSVDD epoch 5/10: loss=0.002471
+DeepSVDD epoch 10/10: loss=0.000181
+预测...
+AUC: 0.7334, AP: 0.7047
+标定阈值 (target_fpr=0.05): 0.000746
+Calib F1: 0.8177, Recall: 0.9965, Precision: 0.6932
+Train BENIGN FPR: 0.1653
+Test BENIGN FPR: 0.5466
+标定阈值 (target_fpr=0.15): 0.000746
+Calib F1: 0.8177, Recall: 0.9965, Precision: 0.6932
+Train BENIGN FPR: 0.1653
+Test BENIGN FPR: 0.5466
+
+[4/7] TranAD
+
+============================================================
+运行 TranAD baseline
+============================================================
+训练集形状: (2988, 128, 39)
+测试集形状: (5138, 128, 39)
+模型参数: d_model=64, nhead=4, num_layers=2
+训练 TranAD...
+TranAD epoch 1/10: loss=0.769164
+TranAD epoch 5/10: loss=0.195125
+TranAD epoch 10/10: loss=0.071436
+预测...
+AUC: 0.8467, AP: 0.8666
+标定阈值 (target_fpr=0.05): 0.219138
+Calib F1: 0.7061, Recall: 0.6164, Precision: 0.8265
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.1604
+标定阈值 (target_fpr=0.15): 0.091952
+Calib F1: 0.8178, Recall: 0.9219, Precision: 0.7349
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.4124
+
+[5/7] GANomaly
+
+============================================================
+运行 GANomaly baseline
+============================================================
+训练 GANomaly...
+预测...
+AUC: 0.9703, AP: 0.9721
+标定阈值 (target_fpr=0.05): 0.004029
+Calib F1: 0.8311, Recall: 0.9972, Precision: 0.7124
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.4991
+标定阈值 (target_fpr=0.15): 0.002089
+Calib F1: 0.7613, Recall: 0.9996, Precision: 0.6147
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.7768
+
+[6/7] LSTM-AE
+
+============================================================
+运行 LSTM-AE baseline
+============================================================
+训练集形状: (2988, 128, 39)
+测试集形状: (5138, 128, 39)
+模型参数: hidden_dim=64, num_layers=2
+训练 LSTM-AE...
+LSTM-AE epoch 1/10: loss=0.895365
+LSTM-AE epoch 5/10: loss=0.761156
+LSTM-AE epoch 10/10: loss=0.445397
+预测...
+AUC: 0.7964, AP: 0.8249
+标定阈值 (target_fpr=0.05): 1.044190
+Calib F1: 0.6602, Recall: 0.5383, Precision: 0.8534
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.1146
+标定阈值 (target_fpr=0.15): 0.545994
+Calib F1: 0.7205, Recall: 0.7243, Precision: 0.7168
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.3548
+
+[7/7] LSTM-AD
+
+============================================================
+运行 LSTM-AD baseline
+============================================================
+训练集形状: (2988, 128, 39)
+测试集形状: (5138, 128, 39)
+模型参数: hidden_dim=64, num_layers=2
+训练 LSTM-AD...
+LSTM-AD epoch 1/10: loss=0.864817
+LSTM-AD epoch 5/10: loss=0.752536
+LSTM-AD epoch 10/10: loss=0.718238
+预测...
+AUC: 0.6723, AP: 0.6976
+标定阈值 (target_fpr=0.05): 3.027851
+Calib F1: 0.2406, Recall: 0.1424, Precision: 0.7744
+Train BENIGN FPR: 0.0502
+Test BENIGN FPR: 0.0514
+标定阈值 (target_fpr=0.15): 0.669011
+Calib F1: 0.5546, Recall: 0.4480, Precision: 0.7280
+Train BENIGN FPR: 0.1503
+Test BENIGN FPR: 0.2075
+
+============================================================
+保存结果
+============================================================
+结果已保存到: attack/results/sota_unsw_nb15/baseline_results.json
+结果已保存到: attack/results/sota_unsw_nb15/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+             method       auc        ap  calib_f1  calib_recall  test_benign_fpr  eval_seconds
+0   IsolationForest  0.832724  0.843023  0.662145      0.566456         0.179163      0.194114
+1   IsolationForest  0.832724  0.843023  0.827210      0.985584         0.492589      0.194114
+2       OneClassSVM  0.757563  0.819741  0.529759      0.378692         0.063208      1.050738
+3       OneClassSVM  0.757563  0.819741  0.617785      0.508087         0.169573      1.050738
+4          DeepSVDD  0.733377  0.704670  0.817657      0.996484         0.546643      2.305766
+5          DeepSVDD  0.733377  0.704670  0.817657      0.996484         0.546643      2.305766
+6            TranAD  0.846701  0.866605  0.706143      0.616385         0.160418     56.338494
+7            TranAD  0.846701  0.866605  0.817842      0.921941         0.412380     56.338494
+8          GANomaly  0.970290  0.972142  0.831062      0.997187         0.499128      3.788623
+9          GANomaly  0.970290  0.972142  0.761280      0.999648         0.776809      3.788623
+10          LSTM-AE  0.796378  0.824879  0.660198      0.538326         0.114647     40.408374
+11          LSTM-AE  0.796378  0.824879  0.720532      0.724332         0.354839     40.408374
+12          LSTM-AD  0.672325  0.697576  0.240570      0.142405         0.051439     19.345092
+13          LSTM-AD  0.672325  0.697576  0.554636      0.447961         0.207498     19.345092

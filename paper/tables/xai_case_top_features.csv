@@ -1,0 +1,9 @@
+rank,feature,ig_abs_mean,shap_abs_mean
+1,PSH Flag Count,0.0009272426832467318,
+2,Fwd Header Length,0.0007931458530947566,
+3,min_seg_size_forward,0.0006827059551142156,
+4,Fwd Header Length.1,0.000589061644859612,
+5,ACK Flag Count,0.0005550780333578587,
+6,Bwd Header Length,0.0004791478277184069,
+7,Bwd Packet Length Std,0.0004476638277992606,
+8,Bwd Packet Length Mean,0.000328042428009212,

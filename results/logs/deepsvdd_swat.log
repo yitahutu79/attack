@@ -1,0 +1,47 @@
+
+============================================================
+加载数据
+============================================================
+unsup train benign windows:   0%|          | 0/1019 [00:00<?, ?it/s]                                                                    unsup calib benign windows:   0%|          | 0/335 [00:00<?, ?it/s]                                                                   unsup test benign windows:   0%|          | 0/335 [00:00<?, ?it/s]                                                                  unsup test attack windows:   0%|          | 0/1098 [00:00<?, ?it/s]                                                                   Loaded swat unsupervised formal split: train_windows=1019, calib_windows=335, test_windows=1433, test_anom_ratio=0.7662, features=71
+
+============================================================
+开始运行 1 个baseline方法
+============================================================
+
+[1/1] DeepSVDD
+
+============================================================
+运行 DeepSVDD baseline
+============================================================
+训练集形状: (1019, 9088)
+测试集形状: (1433, 9088)
+模型参数: rep_dim=32
+训练 DeepSVDD...
+Training DeepSVDD:   0%|          | 0/30 [00:00<?, ?it/s]Training DeepSVDD:   0%|          | 0/30 [00:00<?, ?it/s, loss=5.668701]DeepSVDD epoch 1/30: loss=5.668701
+Training DeepSVDD:   3%|▎         | 1/30 [00:00<00:05,  5.12it/s, loss=5.668701]Training DeepSVDD:   3%|▎         | 1/30 [00:00<00:05,  5.12it/s, loss=0.780007]Training DeepSVDD:   3%|▎         | 1/30 [00:00<00:05,  5.12it/s, loss=0.178352]Training DeepSVDD:  10%|█         | 3/30 [00:00<00:02,  9.34it/s, loss=0.178352]Training DeepSVDD:  10%|█         | 3/30 [00:00<00:02,  9.34it/s, loss=0.108580]Training DeepSVDD:  10%|█         | 3/30 [00:00<00:02,  9.34it/s, loss=0.098487]DeepSVDD epoch 5/30: loss=0.098487
+Training DeepSVDD:  17%|█▋        | 5/30 [00:00<00:02, 10.78it/s, loss=0.098487]Training DeepSVDD:  17%|█▋        | 5/30 [00:00<00:02, 10.78it/s, loss=0.091413]Training DeepSVDD:  17%|█▋        | 5/30 [00:00<00:02, 10.78it/s, loss=0.084211]Training DeepSVDD:  23%|██▎       | 7/30 [00:00<00:02, 11.48it/s, loss=0.084211]Training DeepSVDD:  23%|██▎       | 7/30 [00:00<00:02, 11.48it/s, loss=0.075457]Training DeepSVDD:  23%|██▎       | 7/30 [00:00<00:02, 11.48it/s, loss=0.070057]Training DeepSVDD:  30%|███       | 9/30 [00:00<00:01, 11.86it/s, loss=0.070057]Training DeepSVDD:  30%|███       | 9/30 [00:00<00:01, 11.86it/s, loss=0.063203]DeepSVDD epoch 10/30: loss=0.063203
+Training DeepSVDD:  30%|███       | 9/30 [00:00<00:01, 11.86it/s, loss=0.056875]Training DeepSVDD:  37%|███▋      | 11/30 [00:00<00:01, 12.14it/s, loss=0.056875]Training DeepSVDD:  37%|███▋      | 11/30 [00:01<00:01, 12.14it/s, loss=0.051495]Training DeepSVDD:  37%|███▋      | 11/30 [00:01<00:01, 12.14it/s, loss=0.046410]Training DeepSVDD:  43%|████▎     | 13/30 [00:01<00:01, 11.85it/s, loss=0.046410]Training DeepSVDD:  43%|████▎     | 13/30 [00:01<00:01, 11.85it/s, loss=0.042133]Training DeepSVDD:  43%|████▎     | 13/30 [00:01<00:01, 11.85it/s, loss=0.038760]DeepSVDD epoch 15/30: loss=0.038760
+Training DeepSVDD:  50%|█████     | 15/30 [00:01<00:01, 11.53it/s, loss=0.038760]Training DeepSVDD:  50%|█████     | 15/30 [00:01<00:01, 11.53it/s, loss=0.037732]Training DeepSVDD:  50%|█████     | 15/30 [00:01<00:01, 11.53it/s, loss=0.034137]Training DeepSVDD:  57%|█████▋    | 17/30 [00:01<00:01, 11.78it/s, loss=0.034137]Training DeepSVDD:  57%|█████▋    | 17/30 [00:01<00:01, 11.78it/s, loss=0.030235]Training DeepSVDD:  57%|█████▋    | 17/30 [00:01<00:01, 11.78it/s, loss=0.027976]Training DeepSVDD:  63%|██████▎   | 19/30 [00:01<00:01, 10.03it/s, loss=0.027976]Training DeepSVDD:  63%|██████▎   | 19/30 [00:01<00:01, 10.03it/s, loss=0.024925]DeepSVDD epoch 20/30: loss=0.024925
+Training DeepSVDD:  63%|██████▎   | 19/30 [00:02<00:01, 10.03it/s, loss=0.022784]Training DeepSVDD:  70%|███████   | 21/30 [00:02<00:00,  9.55it/s, loss=0.022784]Training DeepSVDD:  70%|███████   | 21/30 [00:02<00:00,  9.55it/s, loss=0.021284]Training DeepSVDD:  70%|███████   | 21/30 [00:02<00:00,  9.55it/s, loss=0.018762]Training DeepSVDD:  77%|███████▋  | 23/30 [00:02<00:00,  9.96it/s, loss=0.018762]Training DeepSVDD:  77%|███████▋  | 23/30 [00:02<00:00,  9.96it/s, loss=0.016344]Training DeepSVDD:  77%|███████▋  | 23/30 [00:02<00:00,  9.96it/s, loss=0.014446]DeepSVDD epoch 25/30: loss=0.014446
+Training DeepSVDD:  83%|████████▎ | 25/30 [00:02<00:00, 10.79it/s, loss=0.014446]Training DeepSVDD:  83%|████████▎ | 25/30 [00:02<00:00, 10.79it/s, loss=0.012756]Training DeepSVDD:  83%|████████▎ | 25/30 [00:02<00:00, 10.79it/s, loss=0.012529]Training DeepSVDD:  90%|█████████ | 27/30 [00:02<00:00, 10.36it/s, loss=0.012529]Training DeepSVDD:  90%|█████████ | 27/30 [00:02<00:00, 10.36it/s, loss=0.011981]Training DeepSVDD:  90%|█████████ | 27/30 [00:02<00:00, 10.36it/s, loss=0.010924]Training DeepSVDD:  97%|█████████▋| 29/30 [00:02<00:00,  8.89it/s, loss=0.010924]Training DeepSVDD:  97%|█████████▋| 29/30 [00:02<00:00,  8.89it/s, loss=0.009774]DeepSVDD epoch 30/30: loss=0.009774
+Training DeepSVDD: 100%|██████████| 30/30 [00:02<00:00, 10.20it/s, loss=0.009774]
+预测...
+AUC: 0.8485, AP: 0.9314
+标定阈值 (target_fpr=0.05): 0.027450
+Calib F1: 0.8636, Recall: 0.9918, Precision: 0.7647
+Train BENIGN FPR: 0.8597
+Test BENIGN FPR: 1.0000
+
+============================================================
+保存结果
+============================================================
+结果已保存到: attack/results/sota_deepsvdd_swat/baseline_results.json
+结果已保存到: attack/results/sota_deepsvdd_swat/baseline_results.csv
+
+============================================================
+Baseline对比结果汇总
+============================================================
+     method      auc       ap  ...  calib_recall  test_benign_fpr  eval_seconds
+0  DeepSVDD  0.84848  0.93144  ...      0.991803              1.0      3.728649
+
+[1 rows x 7 columns]
