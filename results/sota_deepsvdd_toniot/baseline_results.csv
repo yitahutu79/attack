@@ -1,2 +1,0 @@
-method,window_size,stride,auc,ap,target_fpr,calib_f1,calib_recall,calib_precision,calib_threshold,train_benign_fpr,test_benign_fpr,eval_seconds,n_train_windows,n_test_windows
-DeepSVDD,128,16,0.5834797581078794,0.37048911305016935,0.05,0.3790896159317212,0.3822843822843823,0.3759478046199965,4.4325003736855505e-14,0.050129198966408266,0.26879842017317335,10.542224168777466,37493,18743

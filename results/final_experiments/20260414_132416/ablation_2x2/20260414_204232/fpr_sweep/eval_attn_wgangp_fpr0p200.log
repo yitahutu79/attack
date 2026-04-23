@@ -1,14 +1,0 @@
-train windows 1/4:   0%|          | 0/27845 [00:00<?, ?it/s]                                                            train 窗口完成 1/4：windows=27845 (0.54s)
-train windows 2/4:   0%|          | 0/43205 [00:00<?, ?it/s]train windows 2/4:  75%|███████▌  | 32521/43205 [00:00<00:00, 322686.09it/s]                                                                            train 窗口完成 2/4：windows=43205 (0.61s)
-train windows 3/4:   0%|          | 0/10632 [00:00<?, ?it/s]                                                            train 窗口完成 3/4：windows=10632 (0.06s)
-train windows 4/4:   0%|          | 0/18017 [00:00<?, ?it/s]                                                            train 窗口完成 4/4：windows=18017 (0.24s)
-test windows 1/3:   0%|          | 0/11924 [00:00<?, ?it/s]                                                           test 窗口完成 1/3：windows=11924 (0.16s)
-test windows 2/3:   0%|          | 0/14099 [00:00<?, ?it/s]                                                           test 窗口完成 2/3：windows=14099 (0.22s)
-test windows 3/3:   0%|          | 0/17874 [00:00<?, ?it/s]                                                           test 窗口完成 3/3：windows=17874 (0.22s)
-仅评估：AUC 0.9464，AP 0.9351
-- Eval 用时：27.85s | test_windows=43897 | 1576.2 windows/s
-- 评分方式：score_mode=fused(alpha=0.24)
-- 参考阈值（F1 最大）：0.257385
-- 参考指标：Precision 0.8129，Recall 0.9609，F1 0.8807，FPR 0.1621
-- 标定阈值（训练 BENIGN FPR≈0.200）：0.205060；Precision 0.7616，Recall 0.9799，F1 0.8571，FPR 0.2247（train_BENIGN_FPR 0.2000 | test_BENIGN_FPR 0.2247）
-已保存结果 JSON：attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/fpr_sweep/eval_attn_wgangp_fpr0p200.json

@@ -1,3 +1,0 @@
-method,window_size,stride,auc,ap,target_fpr,calib_f1,calib_recall,calib_precision,calib_threshold,train_benign_fpr,test_benign_fpr,eval_seconds,n_train_windows,n_test_windows
-RF (Window) [skipped: training labels contain only one class],128,16,,,0.05,,,,,,,0.0,1703,1098
-MLP (Window) [skipped: training labels contain only one class],128,16,,,0.05,,,,,,,0.0,1703,1098

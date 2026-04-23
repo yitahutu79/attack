@@ -1,116 +1,0 @@
-
-============================================================
-加载数据
-============================================================
-mixed train windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                                mixed train windows 2/2:   0%|          | 0/545 [00:00<?, ?it/s]                                                                mixed test windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                               mixed test windows 2/2:   0%|          | 0/546 [00:00<?, ?it/s]                                                               Loaded swat supervised mixed split: train_windows=1393, train_anom_ratio=0.3912, test_windows=1394, test_anom_ratio=0.3917, features=71
-
-============================================================
-开始运行 7 个baseline方法
-============================================================
-
-[1/7] IsolationForest
-
-============================================================
-运行 IsolationForest baseline
-============================================================
-训练集形状: (848, 9088)
-测试集形状: (1394, 9088)
-训练 IsolationForest...
-预测...
-AUC: 0.9398, AP: 0.9499
-标定阈值 (target_fpr=0.05): 0.064007
-Calib F1: 0.7894, Recall: 0.6520, Precision: 1.0000
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.0000
-
-[2/7] OneClassSVM
-
-============================================================
-运行 OneClassSVM baseline (优化版)
-============================================================
-原始训练集形状: (848, 9088)
-原始测试集形状: (1394, 9088)
-PCA降维: 9088 -> 100
-PCA解释方差比: 0.8894
-最终训练集形状: (848, 100)
-最终测试集形状: (1394, 100)
-训练 OneClassSVM...
-预测...
-AUC: 0.3127, AP: 0.4036
-标定阈值 (target_fpr=0.05): 0.291767
-Calib F1: 0.2376, Recall: 0.1355, Precision: 0.9610
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.0035
-
-[3/7] Random Forest
-
-============================================================
-运行 Random Forest baseline (窗口级)
-============================================================
-训练集形状: (1393, 9088)
-测试集形状: (1394, 9088)
-训练 Random Forest...
-RF Training:   0%|          | 0/100 [00:00<?, ?it/s]RF Training: 100%|██████████| 100/100 [00:00<00:00, 809.78it/s]RF Training: 100%|██████████| 100/100 [00:00<00:00, 808.82it/s]
-预测...
-AUC: 0.9544, AP: 0.9631
-标定阈值 (target_fpr=0.05): 0.010000
-Calib F1: 0.6384, Recall: 0.9505, Precision: 0.4806
-Train BENIGN FPR: 0.0649
-Test BENIGN FPR: 0.6616
-
-[4/7] SVM
-
-============================================================
-运行 SVM baseline (窗口级)
-============================================================
-训练集形状: (1393, 9088)
-测试集形状: (1394, 9088)
-训练 SVM...
-SVM Training:   0%|          | 0/100 [00:00<?, ?it/s]SVM Training: 100%|██████████| 100/100 [00:07<00:00, 13.70it/s]SVM Training: 100%|██████████| 100/100 [00:07<00:00, 13.70it/s]
-预测...
-AUC: 0.9051, AP: 0.9134
-标定阈值 (target_fpr=0.05): 0.000870
-Calib F1: 0.5887, Recall: 1.0000, Precision: 0.4171
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.8998
-
-[5/7] MLP
-
-============================================================
-运行 MLP baseline (窗口级)
-============================================================
-训练集形状: (1393, 9088)
-测试集形状: (1394, 9088)
-训练 MLP...
-Iteration 1, loss = 0.15926083
-Iteration 2, loss = 0.00020337
-Iteration 3, loss = 0.00017502
-Iteration 4, loss = 0.00017736
-Iteration 5, loss = 0.00017874
-Iteration 6, loss = 0.00017956
-Iteration 7, loss = 0.00017999
-Iteration 8, loss = 0.00018020
-Iteration 9, loss = 0.00018028
-Iteration 10, loss = 0.00018028
-Iteration 11, loss = 0.00018024
-Iteration 12, loss = 0.00018018
-Iteration 13, loss = 0.00018012
-Training loss did not improve more than tol=0.000100 for 10 consecutive epochs. Stopping.
-预测...
-AUC: 0.8165, AP: 0.8531
-标定阈值 (target_fpr=0.05): 0.000000
-Calib F1: 0.5776, Recall: 0.9066, Precision: 0.4238
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.7936
-
-[6/7] LSTM-AE
-
-============================================================
-运行 LSTM-AE baseline
-============================================================
-训练集形状: (848, 128, 71)
-测试集形状: (1394, 128, 71)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AE...
-Training AE:   0%|          | 0/30 [00:00<?, ?it/s]/Users/lijie/miniforge3/envs/attack/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '

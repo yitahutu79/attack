@@ -1,42 +1,0 @@
-
-============================================================
-加载数据
-============================================================
-mixed train windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                                mixed train windows 2/2:   0%|          | 0/545 [00:00<?, ?it/s]                                                                mixed test windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                               mixed test windows 2/2:   0%|          | 0/546 [00:00<?, ?it/s]                                                               Loaded swat supervised mixed split: train_windows=1393, train_anom_ratio=0.3912, test_windows=1394, test_anom_ratio=0.3917, features=71
-
-============================================================
-开始运行 1 个baseline方法
-============================================================
-
-[1/1] LSTM-AD
-
-============================================================
-运行 LSTM-AD baseline
-============================================================
-训练集形状: (848, 128, 71)
-测试集形状: (1394, 128, 71)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AD...
-Training AD:   0%|          | 0/5 [00:00<?, ?it/s]Training AD:   0%|          | 0/5 [00:00<?, ?it/s, loss=0.749666]LSTM-AD epoch 1/5: loss=0.749666
-Training AD:  20%|██        | 1/5 [00:00<00:02,  1.57it/s, loss=0.749666]Training AD:  20%|██        | 1/5 [00:01<00:02,  1.57it/s, loss=0.725898]Training AD:  40%|████      | 2/5 [00:01<00:01,  1.79it/s, loss=0.725898]Training AD:  40%|████      | 2/5 [00:01<00:01,  1.79it/s, loss=0.686870]Training AD:  60%|██████    | 3/5 [00:01<00:01,  1.91it/s, loss=0.686870]Training AD:  60%|██████    | 3/5 [00:02<00:01,  1.91it/s, loss=0.669370]Training AD:  80%|████████  | 4/5 [00:02<00:00,  1.85it/s, loss=0.669370]Training AD:  80%|████████  | 4/5 [00:02<00:00,  1.85it/s, loss=0.564667]LSTM-AD epoch 5/5: loss=0.564667
-Training AD: 100%|██████████| 5/5 [00:02<00:00,  1.86it/s, loss=0.564667]Training AD: 100%|██████████| 5/5 [00:02<00:00,  1.84it/s, loss=0.564667]
-预测...
-AUC: 0.3556, AP: 0.3458
-标定阈值 (target_fpr=0.05): 1.571872
-Calib F1: 0.1691, Recall: 0.1282, Precision: 0.2482
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.2500
-
-============================================================
-保存结果
-============================================================
-结果已保存到: attack/results/cross_dataset_full/swat_supervised_mixed_lstm_ad_only/baseline_results.json
-结果已保存到: attack/results/cross_dataset_full/swat_supervised_mixed_lstm_ad_only/baseline_results.csv
-
-============================================================
-Baseline对比结果汇总
-============================================================
-    method       auc        ap  ...  calib_recall  test_benign_fpr  eval_seconds
-0  LSTM-AD  0.355616  0.345804  ...      0.128205             0.25      3.859415
-
-[1 rows x 7 columns]

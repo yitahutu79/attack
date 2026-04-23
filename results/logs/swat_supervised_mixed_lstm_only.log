@@ -1,48 +1,0 @@
-
-============================================================
-加载数据
-============================================================
-mixed train windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                                mixed train windows 2/2:   0%|          | 0/545 [00:00<?, ?it/s]                                                                mixed test windows 1/2:   0%|          | 0/848 [00:00<?, ?it/s]                                                               mixed test windows 2/2:   0%|          | 0/546 [00:00<?, ?it/s]                                                               Loaded swat supervised mixed split: train_windows=1393, train_anom_ratio=0.3912, test_windows=1394, test_anom_ratio=0.3917, features=71
-
-============================================================
-开始运行 2 个baseline方法
-============================================================
-
-[1/2] LSTM-AE
-
-============================================================
-运行 LSTM-AE baseline
-============================================================
-训练集形状: (848, 128, 71)
-测试集形状: (1394, 128, 71)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AE...
-Training AE:   0%|          | 0/5 [00:00<?, ?it/s]Training AE:   0%|          | 0/5 [00:01<?, ?it/s, loss=0.757332]LSTM-AE epoch 1/5: loss=0.757332
-Training AE:  20%|██        | 1/5 [00:01<00:05,  1.32s/it, loss=0.757332]Training AE:  20%|██        | 1/5 [00:02<00:05,  1.32s/it, loss=0.717230]Training AE:  40%|████      | 2/5 [00:02<00:03,  1.16s/it, loss=0.717230]Training AE:  40%|████      | 2/5 [00:03<00:03,  1.16s/it, loss=0.707622]Training AE:  60%|██████    | 3/5 [00:03<00:02,  1.05s/it, loss=0.707622]Training AE:  60%|██████    | 3/5 [00:04<00:02,  1.05s/it, loss=0.676653]Training AE:  80%|████████  | 4/5 [00:04<00:00,  1.00it/s, loss=0.676653]Training AE:  80%|████████  | 4/5 [00:05<00:00,  1.00it/s, loss=0.631554]LSTM-AE epoch 5/5: loss=0.631554
-Training AE: 100%|██████████| 5/5 [00:05<00:00,  1.03it/s, loss=0.631554]Training AE: 100%|██████████| 5/5 [00:05<00:00,  1.03s/it, loss=0.631554]
-预测...
-AUC: 0.4071, AP: 0.4606
-标定阈值 (target_fpr=0.05): 1.889350
-Calib F1: 0.2912, Recall: 0.2637, Precision: 0.3251
-Train BENIGN FPR: 0.0507
-Test BENIGN FPR: 0.3526
-
-[2/2] LSTM-AD
-
-============================================================
-运行 LSTM-AD baseline
-============================================================
-训练集形状: (848, 128, 71)
-测试集形状: (1394, 128, 71)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AD...
-Traceback (most recent call last):
-  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 1278, in <module>
-    main()
-  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 1242, in main
-    result = run_lstm_ad_baseline(
-  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 669, in run_lstm_ad_baseline
-    model = train_lstm_model(
-  File "/Users/lijie/Desktop/work/attack/baselines/window_baselines.py", line 521, in train_lstm_model
-    torch.set_num_interop_threads(1)
-RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called

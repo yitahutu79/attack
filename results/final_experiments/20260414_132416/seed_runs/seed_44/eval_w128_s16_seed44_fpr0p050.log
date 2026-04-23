@@ -1,14 +1,0 @@
-train windows 1/4:   0%|          | 0/27845 [00:00<?, ?it/s]                                                            train 窗口完成 1/4：windows=27845 (0.25s)
-train windows 2/4:   0%|          | 0/43205 [00:00<?, ?it/s]train windows 2/4:  97%|█████████▋| 42091/43205 [00:00<00:00, 420805.06it/s]                                                                            train 窗口完成 2/4：windows=43205 (0.52s)
-train windows 3/4:   0%|          | 0/10632 [00:00<?, ?it/s]                                                            train 窗口完成 3/4：windows=10632 (0.10s)
-train windows 4/4:   0%|          | 0/18017 [00:00<?, ?it/s]                                                            train 窗口完成 4/4：windows=18017 (0.16s)
-test windows 1/3:   0%|          | 0/11924 [00:00<?, ?it/s]                                                           test 窗口完成 1/3：windows=11924 (0.10s)
-test windows 2/3:   0%|          | 0/14099 [00:00<?, ?it/s]                                                           test 窗口完成 2/3：windows=14099 (0.10s)
-test windows 3/3:   0%|          | 0/17874 [00:00<?, ?it/s]                                                           test 窗口完成 3/3：windows=17874 (0.16s)
-仅评估：AUC 0.8722，AP 0.8758
-- Eval 用时：10.70s | test_windows=43897 | 4102.5 windows/s
-- 评分方式：score_mode=fused(alpha=0.24)
-- 参考阈值（F1 最大）：0.296260
-- 参考指标：Precision 0.9226，Recall 0.6844，F1 0.7858，FPR 0.0421
-- 标定阈值（训练 BENIGN FPR≈0.050）：0.387055；Precision 0.9798，Recall 0.6070，F1 0.7497，FPR 0.0092（train_BENIGN_FPR 0.0500 | test_BENIGN_FPR 0.0092）
-已保存结果 JSON：attack/results/final_experiments/20260414_132416/seed_runs/seed_44/eval_w128_s16_seed44_fpr0p050.json

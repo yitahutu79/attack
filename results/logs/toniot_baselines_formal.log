@@ -1,114 +1,0 @@
-==========================================
-TON_IoT formal chronological baselines
-==========================================
-data:               attack/dataset/TON_loT
-file:               Processed_datasets/Processed_Linux_dataset/linux_memory1.csv
-out:                attack/results/cross_dataset_formal_unsup/ton_iot_baselines/20260419_130847
-window/stride:      128 / 16
-target_fpr:         0.05
-epochs:             5
-train/calib frac:   0.6 / 0.1
-
-
-============================================================
-加载数据
-============================================================
-chrono train windows:   0%|          | 0/37493 [00:00<?, ?it/s]                                                               chrono calib windows:   0%|          | 0/6243 [00:00<?, ?it/s]                                                              chrono test windows:   0%|          | 0/18743 [00:00<?, ?it/s]                                                              Loaded ton_iot chrono unsupervised split: train_windows=37493, calib_windows=3870, test_windows=18743, test_anom_ratio=0.2976, features=10
-
-============================================================
-开始运行 4 个baseline方法
-============================================================
-
-[1/4] IsolationForest
-
-============================================================
-运行 IsolationForest baseline
-============================================================
-训练集形状: (37493, 1280)
-测试集形状: (18743, 1280)
-训练 IsolationForest...
-预测...
-AUC: 0.3986, AP: 0.2555
-标定阈值 (target_fpr=0.05): 0.021877
-Calib F1: 0.1409, Recall: 0.0993, Precision: 0.2423
-Train BENIGN FPR: 0.0501
-Test BENIGN FPR: 0.1316
-
-[2/4] OneClassSVM
-
-============================================================
-运行 OneClassSVM baseline (优化版)
-============================================================
-原始训练集形状: (37493, 1280)
-原始测试集形状: (18743, 1280)
-采样训练集: 37493 -> 10000
-PCA降维: 1280 -> 100
-PCA解释方差比: 0.6882
-最终训练集形状: (10000, 100)
-最终测试集形状: (18743, 100)
-训练 OneClassSVM...
-预测...
-AUC: 0.3754, AP: 0.2694
-标定阈值 (target_fpr=0.05): 20.345711
-Calib F1: 0.2442, Recall: 0.2110, Precision: 0.2897
-Train BENIGN FPR: 0.0501
-Test BENIGN FPR: 0.2192
-
-[3/4] LSTM-AE
-
-============================================================
-运行 LSTM-AE baseline
-============================================================
-训练集形状: (37493, 128, 10)
-测试集形状: (18743, 128, 10)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AE...
-Training AE:   0%|          | 0/5 [00:00<?, ?it/s]Training AE:   0%|          | 0/5 [00:51<?, ?it/s, loss=0.762733]LSTM-AE epoch 1/5: loss=0.762733
-Training AE:  20%|██        | 1/5 [00:51<03:26, 51.60s/it, loss=0.762733]Training AE:  20%|██        | 1/5 [01:40<03:26, 51.60s/it, loss=0.461389]Training AE:  40%|████      | 2/5 [01:40<02:29, 49.86s/it, loss=0.461389]Training AE:  40%|████      | 2/5 [02:31<02:29, 49.86s/it, loss=0.383704]Training AE:  60%|██████    | 3/5 [02:31<01:41, 50.56s/it, loss=0.383704]Training AE:  60%|██████    | 3/5 [03:26<01:41, 50.56s/it, loss=0.349396]Training AE:  80%|████████  | 4/5 [03:26<00:52, 52.24s/it, loss=0.349396]Training AE:  80%|████████  | 4/5 [04:20<00:52, 52.24s/it, loss=0.327382]LSTM-AE epoch 5/5: loss=0.327382
-Training AE: 100%|██████████| 5/5 [04:20<00:00, 52.80s/it, loss=0.327382]Training AE: 100%|██████████| 5/5 [04:20<00:00, 52.05s/it, loss=0.327382]
-预测...
-AUC: 0.6125, AP: 0.3586
-标定阈值 (target_fpr=0.05): 0.236506
-Calib F1: 0.4541, Recall: 0.5611, Precision: 0.3814
-Train BENIGN FPR: 0.0501
-Test BENIGN FPR: 0.3854
-
-[4/4] LSTM-AD
-
-============================================================
-运行 LSTM-AD baseline
-============================================================
-训练集形状: (37493, 128, 10)
-测试集形状: (18743, 128, 10)
-模型参数: hidden_dim=64, num_layers=2
-训练 LSTM-AD...
-Training AD:   0%|          | 0/5 [00:00<?, ?it/s]Training AD:   0%|          | 0/5 [00:25<?, ?it/s, loss=0.684201]LSTM-AD epoch 1/5: loss=0.684201
-Training AD:  20%|██        | 1/5 [00:25<01:40, 25.19s/it, loss=0.684201]Training AD:  20%|██        | 1/5 [00:49<01:40, 25.19s/it, loss=0.556618]Training AD:  40%|████      | 2/5 [00:49<01:13, 24.62s/it, loss=0.556618]Training AD:  40%|████      | 2/5 [01:15<01:13, 24.62s/it, loss=0.517089]Training AD:  60%|██████    | 3/5 [01:15<00:50, 25.14s/it, loss=0.517089]Training AD:  60%|██████    | 3/5 [01:41<00:50, 25.14s/it, loss=0.500118]Training AD:  80%|████████  | 4/5 [01:41<00:25, 25.50s/it, loss=0.500118]Training AD:  80%|████████  | 4/5 [02:08<00:25, 25.50s/it, loss=0.483869]LSTM-AD epoch 5/5: loss=0.483869
-Training AD: 100%|██████████| 5/5 [02:08<00:00, 26.24s/it, loss=0.483869]Training AD: 100%|██████████| 5/5 [02:08<00:00, 25.76s/it, loss=0.483869]
-预测...
-AUC: 0.4848, AP: 0.2864
-标定阈值 (target_fpr=0.05): 2.493005
-Calib F1: 0.1130, Recall: 0.0748, Precision: 0.2314
-Train BENIGN FPR: 0.0501
-Test BENIGN FPR: 0.1052
-
-============================================================
-保存结果
-============================================================
-结果已保存到: attack/results/cross_dataset_formal_unsup/ton_iot_baselines/20260419_130847/baseline_results.json
-结果已保存到: attack/results/cross_dataset_formal_unsup/ton_iot_baselines/20260419_130847/baseline_results.csv
-
-============================================================
-Baseline对比结果汇总
-============================================================
-            method       auc  ...  test_benign_fpr  eval_seconds
-0  IsolationForest  0.398618  ...         0.131551      0.997382
-1      OneClassSVM  0.375424  ...         0.219201      3.551677
-2          LSTM-AE  0.612468  ...         0.385387    294.159786
-3          LSTM-AD  0.484819  ...         0.105195    147.803283
-
-[4 rows x 7 columns]
-
-Done. Key outputs:
-  - attack/results/cross_dataset_formal_unsup/ton_iot_baselines/20260419_130847/baseline_results.csv
-  - attack/results/cross_dataset_formal_unsup/ton_iot_baselines/20260419_130847/baseline_results.json
