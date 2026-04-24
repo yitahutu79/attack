@@ -10,6 +10,8 @@ _archive/
 
 dataset/
 
+external/
+
 # LaTeX build artifacts
 paper/*.aux
 paper/*.bbl
