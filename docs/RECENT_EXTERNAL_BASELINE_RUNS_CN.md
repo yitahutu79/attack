@@ -5,13 +5,13 @@
 ## 结论
 
 `main.tex` 当前已经纳入主要外部 baseline 结果，包括 `ALoRa`、`TimesNet`、`Anomaly Transformer`、`DLinear`、`Autoformer`。  
-`ALoRa @ W=128` 三数据集重跑已启动过，但当前未生成 `*_W128/window_metrics.json`，仅残留 wrapper 进程，需重新启动或清理后再跑。
+`ALoRa @ W=128` 三数据集统一口径重跑已经完成，`CICIDS/SWaT/UNSW` 新结果已落盘，可用于回填主文与汇报页。
 
 ## 已保留的外部仓库
 
 | 仓库 | 当前状态 | 说明 |
 |---|---:|---|
-| `external/ALoRa` | 4/4 已覆盖（旧口径） + `W=128` 未完成 | 旧结果均已归档；`CICIDS/SWaT/UNSW` 的 `W=128` 统一口径需重跑 |
+| `external/ALoRa` | 4/4 已覆盖 + `W=128` 已完成 | 已同时保留旧口径归档结果与 `CICIDS/SWaT/UNSW` 的 `W=128` 统一口径结果 |
 | `external/Anomaly-Transformer` | 3/4 已覆盖 | 已补 `CICIDS_FORMAL`、`SWaT_FORMAL`、`UNSW_FORMAL`；`TON_LINUX_FORMAL` 尚未补 |
 | `external/Time-Series-Library` | 4/4 已覆盖 | 主要用于 `TimesNet`，另有 `DLinear/Autoformer` 结果作为工程备份 |
 
@@ -45,7 +45,7 @@
 - `external/Anomaly-Transformer/test_results/CICIDS_SWaT_FORMAL_w128_s16/window_metrics.json`
 - `external/Anomaly-Transformer/test_results/CICIDS_UNSW_FORMAL_w128_s16/window_metrics.json`
 
-## ALoRa 已归档结果（旧口径，W=20）
+## ALoRa 旧口径归档结果（W=20）
 
 | Dataset | AUC | AP | F1 | Recall | Precision | Test FPR |
 |---|---:|---:|---:|---:|---:|---:|
@@ -57,6 +57,20 @@
 结果目录：
 
 - `external/ALoRa/Results_archive/`
+
+## ALoRa 统一口径重跑结果（W=128）
+
+| Dataset | target FPR | AUC | AP | F1 | Recall | Precision | Test FPR |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `CICIDS_FORMAL` | 0.05 | 0.5265 | 0.5823 | 0.4902 | 0.3865 | 0.6700 | 0.1394 |
+| `SWAT_FORMAL` | 0.05 | 0.9794 | 0.9938 | 0.9822 | 0.9802 | 0.9842 | 0.0518 |
+| `UNSW_FORMAL` | 0.15 | 0.7243 | 0.7553 | 0.2180 | 0.1263 | 0.7979 | 0.0397 |
+
+结果文件：
+
+- `external/ALoRa/Results_archive/CICIDS_FORMAL_W128/window_metrics.json`
+- `external/ALoRa/Results_archive/SWAT_FORMAL_W128/window_metrics.json`
+- `external/ALoRa/Results_archive/UNSW_FORMAL_W128/window_metrics.json`
 
 ## Time-Series-Library 补充记录（此前未写入）
 
@@ -100,5 +114,4 @@
 
 - `Anomaly-Transformer + TON_LINUX_FORMAL` 尚未补。
 - `TimesNet + TON_LINUX_FORMAL` 如需进入公平主表，仍需补 `fair (w128,s16)`。
-- `ALoRa + CICIDS/SWaT/UNSW` 的 `W=128` 统一口径重跑未完成；当前只看到 `RUNNING_alora_w128_fair.log` 起始记录和残留 wrapper 进程，未看到 `Results_archive/*_W128/window_metrics.json`。
 - 论文最终写表前，建议统一核对 `main.tex`、`presentation.html`、各 `window_metrics.json` 的 target FPR 口径，尤其是 UNSW 页面当前主文采用的是压力测试叙事。

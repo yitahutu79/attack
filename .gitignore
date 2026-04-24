@@ -6,6 +6,10 @@ __pycache__/
 *.pyc
 *.pyo
 
+_archive/
+
+dataset/
+
 # LaTeX build artifacts
 paper/*.aux
 paper/*.bbl

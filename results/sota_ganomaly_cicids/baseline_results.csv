@@ -1,0 +1,2 @@
+method,window_size,stride,auc,ap,target_fpr,calib_f1,calib_recall,calib_precision,calib_threshold,train_benign_fpr,test_benign_fpr,eval_seconds,n_train_windows,n_test_windows
+GANomaly,128,16,0.7605455154724299,0.7357410644472209,0.05,0.7461630595248043,0.720843872773263,0.773325635103926,0.006718960870057345,0.05,0.15478631130736478,272.52916407585144,81600,43945

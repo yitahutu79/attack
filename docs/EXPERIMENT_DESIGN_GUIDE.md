@@ -52,8 +52,8 @@
 
 ### 4.1 `ALoRa` 窗口口径
 
-旧结果是 `W=20`，而主表里大多数模型是 `W=128`。  
-`ALoRa@W128` 已启动过，但当前未生成 `Results_archive/*_W128/window_metrics.json`。如果清理残留 wrapper 后重跑成功，建议回填 `main.tex` 和 `presentation.html`，然后再考虑删除表格里的 `W` 列。
+旧结果曾是 `W=20`，而主表里大多数模型是 `W=128`。  
+现在 `ALoRa@W128` 已经完成并落盘；如果主文与汇报页都改用新值，就可以再考虑是否删除表格里的 `W` 列。
 
 ### 4.2 target FPR 口径
 
@@ -102,7 +102,7 @@ RF/MLP 是监督模型，需要攻击样本训练。
 
 ## 6. 接下来最有价值的行动
 
-1. 清理或重启 `ALoRa@W128`，完全落盘后回填 `main.tex`、`presentation.html` 和外部 baseline 记录。
+1. 回填后的 `ALoRa@W128` 数值在 `main.tex`、`presentation.html` 和外部 baseline 记录中保持一致。
 2. 如果所有主表模型都统一为 `W=128`，再删除表格中的 `W` 列，让版式更干净。
 3. 最后统一检查 `target FPR`、`test benign FPR`、`precision/recall/F1` 是否在论文、汇报页、记录文档中一致。
 4. 语言上避免绝对化表述，主张控制在“低误报窗口级检测更实用”这一条线上。

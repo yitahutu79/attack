@@ -1,0 +1,36 @@
+[
+  {
+    "method": "RF (Window)",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.9815930378101005,
+    "ap": 0.9756079747473985,
+    "target_fpr": 0.05,
+    "calib_f1": 0.5033190336419057,
+    "calib_recall": 0.9992827685135377,
+    "calib_precision": 0.3363713182037663,
+    "calib_threshold": 0.01,
+    "train_benign_fpr": 0.052646845540246553,
+    "test_benign_fpr": 0.835105574965821,
+    "eval_seconds": 5.023810148239136,
+    "n_train_windows": 43743,
+    "n_test_windows": 18743
+  },
+  {
+    "method": "MLP (Window)",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.5303917377177172,
+    "ap": 0.3299942232331291,
+    "target_fpr": 0.05,
+    "calib_f1": 0.42455621301775154,
+    "calib_recall": 0.8233817464586696,
+    "calib_precision": 0.28601681719090627,
+    "calib_threshold": 3.742813099449895e-08,
+    "train_benign_fpr": 0.05001208605269519,
+    "test_benign_fpr": 0.8706516785660033,
+    "eval_seconds": 22.50662589073181,
+    "n_train_windows": 43743,
+    "n_test_windows": 18743
+  }
+]

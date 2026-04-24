@@ -1,0 +1,106 @@
+{
+  "task": "cross_dataset_minimal_tcn",
+  "dataset": "swat",
+  "data_dir": "attack/dataset/SWaT",
+  "train_files": [
+    "benign_data/benign_samples_5sec.csv[:0.60]"
+  ],
+  "test_files": [
+    "benign_data/benign_samples_5sec.csv[0.80:]",
+    "attack_data/attack_samples_5sec.csv"
+  ],
+  "calib_files": [
+    "benign_data/benign_samples_5sec.csv[0.60:0.80]"
+  ],
+  "supervised_mixed_split": false,
+  "mixed_train_fraction": null,
+  "unsupervised_formal_split": true,
+  "unsup_train_fraction": 0.6,
+  "unsup_calib_fraction": 0.2,
+  "window_size": 128,
+  "stride": 16,
+  "anomaly_ratio": 0.15,
+  "feature_dim": 71,
+  "n_train_windows": 1019,
+  "n_train_windows_raw": 1019,
+  "n_calib_windows": 335,
+  "n_test_windows": 1433,
+  "train_anomaly_ratio": 0.0,
+  "test_anomaly_ratio": 0.7662247034193999,
+  "model": {
+    "disc_pooling": "attn",
+    "gan_loss": "vanilla",
+    "weight_norm_disabled": true
+  },
+  "history": [
+    {
+      "epoch": 1.0,
+      "d_loss": 1.3385522663593292,
+      "g_loss": 0.7696453034877777,
+      "seconds": 31.569245041988324
+    },
+    {
+      "epoch": 2.0,
+      "d_loss": 1.172141820192337,
+      "g_loss": 0.9525492042303085,
+      "seconds": 29.47601337499509
+    },
+    {
+      "epoch": 3.0,
+      "d_loss": 0.9345791339874268,
+      "g_loss": 1.2667376399040222,
+      "seconds": 28.297366374987178
+    },
+    {
+      "epoch": 4.0,
+      "d_loss": 0.6686747819185257,
+      "g_loss": 1.672146201133728,
+      "seconds": 28.126916499997606
+    },
+    {
+      "epoch": 5.0,
+      "d_loss": 0.4033132717013359,
+      "g_loss": 2.1688155829906464,
+      "seconds": 28.20805924999877
+    },
+    {
+      "epoch": 6.0,
+      "d_loss": 0.24112831056118011,
+      "g_loss": 2.62720263004303,
+      "seconds": 28.06753633399785
+    },
+    {
+      "epoch": 7.0,
+      "d_loss": 0.3991137519478798,
+      "g_loss": 2.210231840610504,
+      "seconds": 28.202033582987497
+    },
+    {
+      "epoch": 8.0,
+      "d_loss": 0.789420947432518,
+      "g_loss": 1.8130278587341309,
+      "seconds": 28.16386716699344
+    }
+  ],
+  "metrics": {
+    "auc": 0.9904439550879482,
+    "ap": 0.9977442525541758
+  },
+  "calibrated": {
+    "threshold": 0.6343164443969727,
+    "precision": 0.9999999999999991,
+    "recall": 0.9899817850637515,
+    "f1": 0.9949656750567073,
+    "fpr": 0.0,
+    "tn": 335.0,
+    "fp": 0.0,
+    "fn": 11.0,
+    "tp": 1087.0,
+    "target_fpr": 0.05,
+    "train_benign_fpr": 0.050746268656716415,
+    "test_benign_fpr": 0.0
+  },
+  "timing": {
+    "total_seconds": 240.43881820800016
+  }
+}

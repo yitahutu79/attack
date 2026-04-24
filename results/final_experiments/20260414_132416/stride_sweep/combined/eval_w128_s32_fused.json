@@ -1,0 +1,59 @@
+{
+  "task": "window_anomaly_detection",
+  "data_dir": "attack/dataset/CICIDS2017",
+  "train_files": [
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-workingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+  ],
+  "test_files": [
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+  ],
+  "window_size": 128,
+  "stride": 32,
+  "anomaly_ratio": 0.15,
+  "train_benign_only": true,
+  "load": "attack/results/final_experiments/20260414_132416/reused_checkpoints/ckpt_w128_s32.pt",
+  "eval_only": true,
+  "disc_pooling": "attn",
+  "gan_loss": "vanilla",
+  "gp_lambda": 10.0,
+  "n_critic": 5,
+  "timing": {
+    "eval_seconds": 5.184266541997204,
+    "total_seconds": 42.93766620899987,
+    "n_train_windows": 40772,
+    "n_test_windows": 21949,
+    "eval_windows_per_sec": 4233.771512747934
+  },
+  "metrics": {
+    "auc": 0.8703290428531705,
+    "ap": 0.8283508081770348,
+    "best_f1_threshold": 0.22368068993091583,
+    "best_precision": 0.6731437076236149,
+    "best_recall": 0.8773574738657182,
+    "best_f1": 0.7618022738964814,
+    "best_fpr": 0.3119968429360694
+  },
+  "score_mode": "fused",
+  "score_alpha": 0.2,
+  "calibrated": {
+    "target_fpr": 0.05,
+    "threshold": 0.39557257294654846,
+    "precision": 0.8507431874483896,
+    "recall": 0.4441211337428601,
+    "f1": 0.5835870565739314,
+    "fpr": 0.05706393054459352,
+    "train_benign_fpr": 0.05000981065437065,
+    "test_benign_fpr": 0.05706393054459353,
+    "n_train_benign_calib": 40772,
+    "n_test_benign": 12670
+  },
+  "scores_csv": "",
+  "xai": {
+    "enabled": false
+  }
+}

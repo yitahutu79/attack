@@ -508,16 +508,16 @@
 <section class="slide">
     <h2>结果二：现代深度异常检测 Baseline</h2>
     <table>
-        <tr><th>Model</th><th>W</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Test FPR</th></tr>
-        <tr class="best"><td>Ours</td><td>128</td><td>0.9464</td><td>0.9351</td><td>0.7958</td><td>0.6640</td><td>0.0036</td></tr>
-        <tr><td>GANomaly</td><td>128</td><td>0.7409</td><td>0.7706</td><td>0.7223</td><td>0.7117</td><td>0.1896</td></tr>
-        <tr><td>ALoRa</td><td>20</td><td>0.6936</td><td>0.6239</td><td>0.4939</td><td>0.3900</td><td>0.1374</td></tr>
-        <tr><td>TranAD</td><td>128</td><td>0.5660</td><td>0.5786</td><td>0.4919</td><td>0.3834</td><td>0.1284</td></tr>
-        <tr><td>TimesNet</td><td>128</td><td>0.3920</td><td>0.4233</td><td>0.4755</td><td>0.3598</td><td>0.1124</td></tr>
-        <tr><td>DLinear</td><td>128</td><td>0.4024</td><td>0.4795</td><td>0.4879</td><td>0.3695</td><td>0.1064</td></tr>
-        <tr><td>Autoformer</td><td>128</td><td>0.4687</td><td>0.5285</td><td>0.4985</td><td>0.3822</td><td>0.1107</td></tr>
-        <tr><td>Anomaly Transformer</td><td>128</td><td>0.5978</td><td>0.5069</td><td>0.2496</td><td>0.1571</td><td>0.0744</td></tr>
-        <tr><td>DeepSVDD</td><td>128</td><td>0.4782</td><td>0.4664</td><td>0.0291</td><td>0.0153</td><td>0.0274</td></tr>
+        <tr><th>Model</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Test FPR</th></tr>
+        <tr class="best"><td>Ours</td><td>0.9464</td><td>0.9351</td><td>0.7958</td><td>0.6640</td><td>0.0036</td></tr>
+        <tr><td>GANomaly</td><td>0.7409</td><td>0.7706</td><td>0.7223</td><td>0.7117</td><td>0.1896</td></tr>
+        <tr><td>ALoRa</td><td>0.5265</td><td>0.5823</td><td>0.4902</td><td>0.3865</td><td>0.1394</td></tr>
+        <tr><td>TranAD</td><td>0.5660</td><td>0.5786</td><td>0.4919</td><td>0.3834</td><td>0.1284</td></tr>
+        <tr><td>TimesNet</td><td>0.3920</td><td>0.4233</td><td>0.4755</td><td>0.3598</td><td>0.1124</td></tr>
+        <tr><td>DLinear</td><td>0.4024</td><td>0.4795</td><td>0.4879</td><td>0.3695</td><td>0.1064</td></tr>
+        <tr><td>Autoformer</td><td>0.4687</td><td>0.5285</td><td>0.4985</td><td>0.3822</td><td>0.1107</td></tr>
+        <tr><td>Anomaly Transformer</td><td>0.5978</td><td>0.5069</td><td>0.2496</td><td>0.1571</td><td>0.0744</td></tr>
+        <tr><td>DeepSVDD</td><td>0.4782</td><td>0.4664</td><td>0.0291</td><td>0.0153</td><td>0.0274</td></tr>
     </table>
     <div class="two-column">
         <div class="card green-card">
@@ -564,20 +564,20 @@
 <section class="slide">
     <h2>结果四：SWaT 跨域强验证</h2>
     <table>
-        <tr><th>Model</th><th>W</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Precision</th><th>Test FPR</th></tr>
-        <tr class="best"><td>Ours</td><td>128</td><td>0.9904</td><td>0.9977</td><td>0.9950</td><td>0.9900</td><td>1.0000</td><td>0.0000</td></tr>
-        <tr><td>OneClassSVM</td><td>128</td><td>0.9926</td><td>0.9982</td><td>0.9913</td><td>0.9827</td><td>1.0000</td><td>0.0000</td></tr>
-        <tr><td>TimesNet</td><td>128</td><td>0.9951</td><td>0.9973</td><td>0.9913</td><td>0.9837</td><td>0.9991</td><td>0.0030</td></tr>
-        <tr><td>DLinear</td><td>128</td><td>0.9945</td><td>0.9971</td><td>0.9909</td><td>0.9828</td><td>0.9993</td><td>0.0030</td></tr>
-        <tr><td>Autoformer</td><td>128</td><td>0.9907</td><td>0.9962</td><td>0.9909</td><td>0.9828</td><td>0.9993</td><td>0.0030</td></tr>
-        <tr><td>TranAD</td><td>128</td><td>0.9800</td><td>0.9953</td><td>0.9885</td><td>0.9800</td><td>0.9972</td><td>0.0090</td></tr>
-        <tr><td>LSTM-AE</td><td>128</td><td>0.9800</td><td>0.9953</td><td>0.9867</td><td>0.9800</td><td>0.9935</td><td>0.0209</td></tr>
-        <tr><td>GANomaly</td><td>128</td><td>0.9971</td><td>0.9993</td><td>0.9864</td><td>0.9945</td><td>0.9785</td><td>0.0716</td></tr>
-        <tr><td>IsolationForest</td><td>128</td><td>0.9861</td><td>0.9964</td><td>0.9768</td><td>0.9599</td><td>0.9943</td><td>0.0179</td></tr>
-        <tr><td>ALoRa</td><td>20</td><td>0.9526</td><td>0.9879</td><td>0.9559</td><td>0.9177</td><td>0.9975</td><td>0.0075</td></tr>
-        <tr><td>LSTM-AD</td><td>128</td><td>0.8680</td><td>0.9661</td><td>0.8988</td><td>0.8288</td><td>0.9817</td><td>0.0507</td></tr>
-        <tr><td>Anomaly Transformer</td><td>128</td><td>0.8661</td><td>0.9620</td><td>0.8869</td><td>0.8098</td><td>0.9803</td><td>0.0536</td></tr>
-        <tr><td>DeepSVDD</td><td>128</td><td>0.8485</td><td>0.9314</td><td>0.8636</td><td>0.9918</td><td>0.7647</td><td>1.0000</td></tr>
+        <tr><th>Model</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Precision</th><th>Test FPR</th></tr>
+        <tr class="best"><td>Ours</td><td>0.9904</td><td>0.9977</td><td>0.9950</td><td>0.9900</td><td>1.0000</td><td>0.0000</td></tr>
+        <tr><td>OneClassSVM</td><td>0.9926</td><td>0.9982</td><td>0.9913</td><td>0.9827</td><td>1.0000</td><td>0.0000</td></tr>
+        <tr><td>TimesNet</td><td>0.9951</td><td>0.9973</td><td>0.9913</td><td>0.9837</td><td>0.9991</td><td>0.0030</td></tr>
+        <tr><td>DLinear</td><td>0.9945</td><td>0.9971</td><td>0.9909</td><td>0.9828</td><td>0.9993</td><td>0.0030</td></tr>
+        <tr><td>Autoformer</td><td>0.9907</td><td>0.9962</td><td>0.9909</td><td>0.9828</td><td>0.9993</td><td>0.0030</td></tr>
+        <tr><td>TranAD</td><td>0.9800</td><td>0.9953</td><td>0.9885</td><td>0.9800</td><td>0.9972</td><td>0.0090</td></tr>
+        <tr><td>LSTM-AE</td><td>0.9800</td><td>0.9953</td><td>0.9867</td><td>0.9800</td><td>0.9935</td><td>0.0209</td></tr>
+        <tr><td>GANomaly</td><td>0.9971</td><td>0.9993</td><td>0.9864</td><td>0.9945</td><td>0.9785</td><td>0.0716</td></tr>
+        <tr><td>IsolationForest</td><td>0.9861</td><td>0.9964</td><td>0.9768</td><td>0.9599</td><td>0.9943</td><td>0.0179</td></tr>
+        <tr><td>ALoRa</td><td>0.9794</td><td>0.9938</td><td>0.9822</td><td>0.9802</td><td>0.9842</td><td>0.0518</td></tr>
+        <tr><td>LSTM-AD</td><td>0.8680</td><td>0.9661</td><td>0.8988</td><td>0.8288</td><td>0.9817</td><td>0.0507</td></tr>
+        <tr><td>Anomaly Transformer</td><td>0.8661</td><td>0.9620</td><td>0.8869</td><td>0.8098</td><td>0.9803</td><td>0.0536</td></tr>
+        <tr><td>DeepSVDD</td><td>0.8485</td><td>0.9314</td><td>0.8636</td><td>0.9918</td><td>0.7647</td><td>1.0000</td></tr>
     </table>
     <div class="callout good">与论文 Table 4 一致：SWaT 在 formal anomaly-detection split 下验证了方法的跨域可用性，但并不意味着所有数据域都能获得相同表现。</div>
     <span class="page-number">12</span>
@@ -586,20 +586,20 @@
 <section class="slide">
     <h2>结果五：UNSW-NB15 压力测试</h2>
     <table>
-        <tr><th>Model</th><th>W</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Precision</th><th>Test FPR</th></tr>
-        <tr><td>IsolationForest</td><td>128</td><td>0.8327</td><td>0.8430</td><td>0.8272</td><td>0.9856</td><td>0.7127</td><td>0.4926</td></tr>
-        <tr><td>TranAD</td><td>128</td><td>0.8467</td><td>0.8666</td><td>0.8178</td><td>0.9219</td><td>0.7349</td><td>0.4124</td></tr>
-        <tr><td>DeepSVDD</td><td>128</td><td>0.7334</td><td>0.7047</td><td>0.8177</td><td>0.9965</td><td>0.6932</td><td>0.5466</td></tr>
-        <tr class="ours-row"><td>Ours</td><td>128</td><td>0.8017</td><td>0.7549</td><td>0.7928</td><td>0.9037</td><td>0.7062</td><td>0.4660</td></tr>
-        <tr><td>GANomaly</td><td>128</td><td>0.9703</td><td>0.9721</td><td>0.7613</td><td>0.9996</td><td>0.6147</td><td>0.7768</td></tr>
-        <tr><td>LSTM-AE</td><td>128</td><td>0.7964</td><td>0.8249</td><td>0.7205</td><td>0.7243</td><td>0.7168</td><td>0.3548</td></tr>
-        <tr><td>OneClassSVM</td><td>128</td><td>0.7576</td><td>0.8197</td><td>0.6178</td><td>0.5081</td><td>0.7879</td><td>0.1696</td></tr>
-        <tr><td>TimesNet†</td><td>128</td><td>0.7133</td><td>0.7806</td><td>0.2696</td><td>0.1579</td><td>0.9220</td><td>0.0166</td></tr>
-        <tr><td>DLinear†</td><td>128</td><td>0.7400</td><td>0.8003</td><td>0.2599</td><td>0.1512</td><td>0.8968</td><td>0.0153</td></tr>
-        <tr><td>Autoformer†</td><td>128</td><td>0.7963</td><td>0.8377</td><td>0.5353</td><td>0.3681</td><td>0.9855</td><td>0.0092</td></tr>
-        <tr><td>LSTM-AD</td><td>128</td><td>0.6723</td><td>0.6976</td><td>0.5546</td><td>0.4480</td><td>0.7280</td><td>0.2075</td></tr>
-        <tr><td>Anomaly Transformer</td><td>128</td><td>0.5845</td><td>0.6577</td><td>0.3684</td><td>0.2511</td><td>0.6919</td><td>0.1386</td></tr>
-        <tr><td>ALoRa</td><td>20</td><td>0.6892</td><td>0.7032</td><td>0.2045</td><td>0.1172</td><td>0.8030</td><td>0.0353</td></tr>
+        <tr><th>Model</th><th>AUC</th><th>AP</th><th>F1</th><th>Recall</th><th>Precision</th><th>Test FPR</th></tr>
+        <tr><td>IsolationForest</td><td>0.8327</td><td>0.8430</td><td>0.8272</td><td>0.9856</td><td>0.7127</td><td>0.4926</td></tr>
+        <tr><td>TranAD</td><td>0.8467</td><td>0.8666</td><td>0.8178</td><td>0.9219</td><td>0.7349</td><td>0.4124</td></tr>
+        <tr><td>DeepSVDD</td><td>0.7334</td><td>0.7047</td><td>0.8177</td><td>0.9965</td><td>0.6932</td><td>0.5466</td></tr>
+        <tr class="ours-row"><td>Ours</td><td>0.8017</td><td>0.7549</td><td>0.7928</td><td>0.9037</td><td>0.7062</td><td>0.4660</td></tr>
+        <tr><td>GANomaly</td><td>0.9703</td><td>0.9721</td><td>0.7613</td><td>0.9996</td><td>0.6147</td><td>0.7768</td></tr>
+        <tr><td>LSTM-AE</td><td>0.7964</td><td>0.8249</td><td>0.7205</td><td>0.7243</td><td>0.7168</td><td>0.3548</td></tr>
+        <tr><td>OneClassSVM</td><td>0.7576</td><td>0.8197</td><td>0.6178</td><td>0.5081</td><td>0.7879</td><td>0.1696</td></tr>
+        <tr><td>TimesNet†</td><td>0.7133</td><td>0.7806</td><td>0.2696</td><td>0.1579</td><td>0.9220</td><td>0.0166</td></tr>
+        <tr><td>DLinear†</td><td>0.7400</td><td>0.8003</td><td>0.2599</td><td>0.1512</td><td>0.8968</td><td>0.0153</td></tr>
+        <tr><td>Autoformer†</td><td>0.7963</td><td>0.8377</td><td>0.5353</td><td>0.3681</td><td>0.9855</td><td>0.0092</td></tr>
+        <tr><td>LSTM-AD</td><td>0.6723</td><td>0.6976</td><td>0.5546</td><td>0.4480</td><td>0.7280</td><td>0.2075</td></tr>
+        <tr><td>Anomaly Transformer</td><td>0.5845</td><td>0.6577</td><td>0.3684</td><td>0.2511</td><td>0.6919</td><td>0.1386</td></tr>
+        <tr><td>ALoRa</td><td>0.7243</td><td>0.7553</td><td>0.2180</td><td>0.1263</td><td>0.7979</td><td>0.0397</td></tr>
     </table>
     <div class="callout warn">与论文 Table 5 一致：UNSW-NB15 主要用于展示阈值迁移压力测试结果，说明高 recall 往往伴随较高 benign alarms。</div>
     <span class="page-number">13</span>

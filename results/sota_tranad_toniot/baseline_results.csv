@@ -1,0 +1,2 @@
+method,window_size,stride,auc,ap,target_fpr,calib_f1,calib_recall,calib_precision,calib_threshold,train_benign_fpr,test_benign_fpr,eval_seconds,n_train_windows,n_test_windows
+TranAD,128,16,0.4406142706894059,0.2826549460750257,0.05,0.3058260720997779,0.3209610901918594,0.2920541687061511,0.012699388433247803,0.050129198966408266,0.3295609904298952,2213.198599100113,37493,18743

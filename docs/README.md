@@ -44,4 +44,5 @@
 
 - 写论文时：先看 `CURRENT_PAPER_GUIDE_CN.md`，再对照 `paper/main.tex`。
 - 查外部 baseline：看 `RECENT_EXTERNAL_BASELINE_RUNS_CN.md`，不要只看旧汇报稿。
+- 查当前结果目录结构：优先看 `../results/README.md` 和 `../results/RESULTS_GUIDE_CN.md`。
 - 若文档之间冲突：以 `paper/main.tex` 和最新结果文件为准。

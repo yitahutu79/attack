@@ -25,8 +25,8 @@ echo "Running SWaT RF and MLP (Supervised)..."
 $PYTHON_EXE baselines/window_baselines.py \
   --dataset swat --data-dir dataset/SWaT \
   --supervised-mixed-split \
-  --methods rf mlp --output-dir results/sota_rf_mlp_swat \
-  --out-log results/logs/rf_mlp_swat.log
+  --methods rf mlp --output-dir results/sota_rf_mlp_swat_fixed \
+  --out-log results/logs/rf_mlp_swat_fixed.log
 
 # 3. ToN_IoT: RF + MLP (use supervised-mixed-split on the chrono file)
 echo "Running ToN_IoT RF and MLP (Supervised)..."
@@ -34,7 +34,7 @@ $PYTHON_EXE baselines/window_baselines.py \
   --dataset ton_iot --data-dir dataset/TON_loT \
   --supervised-mixed-split \
   --mixed-files Processed_datasets/Processed_Linux_dataset/linux_memory1.csv \
-  --methods rf mlp --output-dir results/sota_rf_mlp_toniot \
-  --out-log results/logs/rf_mlp_toniot.log
+  --methods rf mlp --output-dir results/sota_rf_mlp_toniot_fixed \
+  --out-log results/logs/rf_mlp_toniot_fixed.log
 
 echo "Missing baselines run completed at $(date)"

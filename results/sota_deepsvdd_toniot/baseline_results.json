@@ -1,0 +1,19 @@
+[
+  {
+    "method": "DeepSVDD",
+    "window_size": 128,
+    "stride": 16,
+    "auc": 0.5834797581078794,
+    "ap": 0.37048911305016935,
+    "target_fpr": 0.05,
+    "calib_f1": 0.3790896159317212,
+    "calib_recall": 0.3822843822843823,
+    "calib_precision": 0.3759478046199965,
+    "calib_threshold": 4.4325003736855505e-14,
+    "train_benign_fpr": 0.050129198966408266,
+    "test_benign_fpr": 0.26879842017317335,
+    "eval_seconds": 10.542224168777466,
+    "n_train_windows": 37493,
+    "n_test_windows": 18743
+  }
+]
