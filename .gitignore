@@ -1,1 +1,38 @@
-git commit -m "Add .gitignore and stop tracking generated files"
+# macOS
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+
+# Runtime logs and temporary outputs
+*.pid
+*.tmp
+*.temp
+results/logs/
+results/**/*.log
+results/**/*.err
+external/**/Results_archive/**/*.log
+external/**/Results_archive/**/*.err
+
+# Model checkpoints and large binary artifacts
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.npy
+*.npy.gz
+
+# Keep curated result tables/docs, but ignore notebook noise
+.ipynb_checkpoints/
