@@ -1,0 +1,19 @@
+\begin{table}[t]
+  \centering
+  \caption{Supplementary SWaT baseline comparison at target\_fpr=0.05 under the strict protocol (role: supplementary industrial-control validation).}
+  \label{tab:candidate_supp_swat_t005}
+  \small
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{lcccccc}
+    \toprule
+    Model & AUC & AP & Test FPR & Precision & Recall & F1 \\
+    \midrule
+    IsolationForest & 0.9861 & 0.9964 & 0.0179 & 0.9943 & 0.9599 & 0.9768 \\
+    OneClassSVM & 0.4130 & 0.8150 & 0.0000 & 1.0000 & 0.0109 & 0.0216 \\
+    GANomaly & 0.5382 & 0.8606 & 0.0000 & 1.0000 & 0.2559 & 0.4075 \\
+    TranAD & 0.9409 & 0.9857 & 0.0000 & 1.0000 & 0.9344 & 0.9661 \\
+    Ours & 0.9904 & 0.9977 & 0.0000 & 1.0000 & 0.9900 & 0.9950 \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}

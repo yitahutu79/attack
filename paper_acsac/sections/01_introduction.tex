@@ -1,0 +1,30 @@
+\section{Introduction}
+
+Security operations centers (SOCs) are constrained by analyst attention, triage time, and response bandwidth. In practice, false alarms are not a minor side effect: they directly increase investigation cost, delay real incident response, and accelerate alert fatigue. For this reason, deployment-facing intrusion detection should be framed as \emph{alarm generation under fixed policy constraints}, not only as offline anomaly-score ranking.
+
+This requirement exposes a gap in common evaluation practice. Many intrusion detection system (IDS) papers emphasize area under the receiver operating characteristic curve (AUC) or average precision (AP), which measure score separability, but these metrics do not by themselves specify deployed alarm quality after threshold fixation. A detector can rank anomalous windows well and still be operationally unusable if the fixed threshold produces excessive benign alarm rate.
+
+A second gap concerns detection granularity. Flow-level classification treats each flow independently and is useful for benchmarking, but it does not directly guarantee a stable alarm stream at the unit analysts usually consume. We instead focus on window-level detection, where each decision summarizes a short temporal segment. This setting better captures local context across neighboring flows and maps more naturally to alert units in SOC workflows.
+
+However, window-level evaluation is only meaningful when calibration is strict. If threshold selection, preprocessing, or reference statistics leak test information, low-FPR claims can appear stronger than they are under realistic deployment constraints. To address this risk, we adopt a strict no-leakage protocol that separates scaler fitting, model training, TAD-reference construction, threshold calibration, and final testing by data role.
+
+Within this setting, we build a calibrated and auditable detector based on a Temporal Convolutional Network Wasserstein Generative Adversarial Network with Gradient Penalty (TCN-WGAN-GP) with fused Temporal Attention-Deviation (TAD) scoring. Our contribution is not positioned as architecture novelty alone; the core is a deployment-oriented evaluation and calibration pipeline in which thresholds are selected only on independent benign calibration windows and fixed before test-label inspection. This design centers the deployment-facing quantity: observed benign false-positive rate (FPR) on unseen test traffic.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.96\textwidth]{figures/framework_overview.png}
+  \Description{Protocol-consistent end-to-end framework from network flow records to calibrated alarm decisions and audit evidence.}
+  \caption{Protocol-consistent framework from network flow records to calibrated alarm and audit evidence. This figure is schematic; exact notation, dimensions, and protocol rules follow Sections~\ref{sec:method} and~\ref{sec:protocol}.}
+  \label{fig:framework_overview}
+\end{figure*}
+
+The primary evidence chain in this paper is CICIDS2017 under strict no-leakage evaluation \cite{sharafaldin2018cicids}. We compare against representative strict-protocol baselines, including IsolationForest \cite{liu2008iforest}, OneClassSVM \cite{scholkopf2001ocsvm}, multilayer perceptron (MLP), GANomaly \cite{akcay2018ganomaly}, and TranAD \cite{tuli2022tranad}. We report ranking metrics (AUC/AP), thresholded metrics (precision/recall/F1), and observed test benign FPR jointly, so model discrimination and deployable alarm policy are evaluated together.
+
+We summarize our contribution in three review-facing claims:
+\begin{itemize}
+  \item \textbf{Problem framing and method design:} We formulate window-level NIDS as calibrated alarm generation under fixed policy constraints, and implement this framing with a TCN-WGAN-GP + fused TAD scoring pipeline coupled to strict no-leakage data roles.
+  \item \textbf{Protocol-grounded primary evidence:} On CICIDS2017, under independent benign calibration and fixed-threshold evaluation, the selected operating point (target\_fpr \(=0.25\), threshold \(=0.425420\)) yields observed benign FPR 0.046023 with Precision/Recall/F1 of 0.938395/0.956847/0.947531.
+  \item \textbf{Operational boundary characterization:} We provide analyst-facing audit traces through attribution-guided masking and single-window inspection, and we explicitly report boundary failures, including zero Bot recall at the selected threshold and fixed-threshold sensitivity under stronger perturbation.
+\end{itemize}
+
+Section~\ref{sec:bg} introduces the window-level problem setting and related work context. Section~\ref{sec:method} describes the model, scoring method, and embedded calibration protocol. Section~\ref{sec:protocol} specifies evaluation scope and data splits. Section~\ref{sec:setup} and Section~\ref{sec:results} present results, and Section~\ref{sec:discussion} discusses deployment boundaries and limitations.

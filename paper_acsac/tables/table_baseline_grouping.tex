@@ -1,0 +1,20 @@
+\begin{table}[t]
+  \centering
+  \caption{Representative baseline grouping used in this study.}
+  \label{tab:baseline_grouping}
+  \small
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{llll}
+    \toprule
+    Method & Family & Training Signal & Role \\
+    \midrule
+    IsolationForest & Tree one-class & Benign windows & Classical unsupervised baseline \\
+    OneClassSVM & Kernel one-class & Benign windows & Classical unsupervised baseline \\
+    MLP (Window) & Supervised MLP & Train-split window labels & Supervised reference baseline \\
+    GANomaly & Adversarial reconstruction & Benign windows & Deep anomaly baseline \\
+    TranAD & Transformer anomaly model & Benign windows & Deep sequence baseline \\
+    Ours & TCN-WGAN-GP + TAD & Benign windows + independent calibration & Calibrated auditable detector \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}

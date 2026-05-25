@@ -1,0 +1,50 @@
+\documentclass[conference,compsoc]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\newcommand{\Description}[1]{}
+
+\title{Calibrated and Auditable Window-Level Network Intrusion Detection with TCN-WGAN-GP}
+
+\author{\IEEEauthorblockN{Anonymous Submission}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Network Intrusion Detection Systems (NIDS) are ultimately consumed as alarm streams, where excessive benign alerts increase analyst workload and alert fatigue. This paper studies window-level intrusion detection as a calibrated alarm-generation problem rather than only as offline score ranking. We present a pipeline based on a Temporal Convolutional Network Wasserstein Generative Adversarial Network with Gradient Penalty (TCN-WGAN-GP) and fused Temporal Attention-Deviation (TAD) scoring.
+
+The method couples anomaly scoring with a strict no-leakage calibration design: scaler fitting, benign-only model training, benign-reference construction, threshold calibration, and final testing are assigned separate data roles. The alarm threshold is selected only from an independent benign calibration split and then fixed before test-label inspection, making observed test benign false-positive rate (FPR) the deployment-facing quantity.
+
+On CICIDS2017, the selected calibrated operating point achieves low observed benign FPR (0.046023) while maintaining high F1 (0.947531). Beyond aggregate metrics, the analysis exposes family-level behavior, including zero Bot recall at the selected threshold, and shows that fixed thresholds are sensitive to stronger perturbations. For auditability, Integrated Gradients (IG) masking and a single-window Distributed Denial-of-Service (DDoS) case provide post-hoc evidence localization and a masking-based decision check. Supplementary SWaT and UNSW-NB15 results are used to characterize operating boundaries, not to claim comprehensive cross-dataset generalization.
+\end{abstract}
+
+\begin{IEEEkeywords}
+network intrusion detection, window-level anomaly detection, no-leakage evaluation, threshold calibration, auditability
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_background_problem}
+\input{sections/03_method}
+\input{sections/04_protocol}
+\input{sections/05_experimental_setup}
+\input{sections/06_results}
+\input{sections/07_discussion}
+\input{sections/09_conclusion}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\section*{LLM Usage Statement}
+LLMs were used for editorial purposes in this manuscript, and all outputs were inspected by the authors to ensure accuracy and originality.
+
+\end{document}

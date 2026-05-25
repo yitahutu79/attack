@@ -1,0 +1,20 @@
+\begin{table}[t]
+  \centering
+  \caption{Supplementary UNSW-NB15 baseline comparison at target\_fpr=0.05 under the strict protocol (role: distribution-shift stress test).}
+  \label{tab:candidate_supp_unsw_t005}
+  \small
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{lcccccc}
+    \toprule
+    Model & AUC & AP & Test FPR & Precision & Recall & F1 \\
+    \midrule
+    IsolationForest & 0.7849 & 0.8027 & 0.0318 & 0.9075 & 0.2518 & 0.3942 \\
+    OneClassSVM & 0.8173 & 0.8470 & 0.0266 & 0.9219 & 0.2532 & 0.3972 \\
+    MLP (Window) & 0.9978 & 0.9979 & 0.0004 & 0.9993 & 0.4877 & 0.6555 \\
+    GANomaly & 0.7495 & 0.7026 & 0.0192 & 0.0000 & 0.0000 & 0.0000 \\
+    TranAD & 0.7349 & 0.6358 & 0.0270 & 0.0000 & 0.0000 & 0.0000 \\
+    Ours & 0.8061 & 0.7549 & 0.0275 & 0.2410 & 0.0070 & 0.0137 \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}

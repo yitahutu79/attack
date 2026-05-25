@@ -1,0 +1,4 @@
+k,original_mean_fused_score,ig_mean_score_drop,random_mean_score_drop,delta_drop,ig_beats_random_fraction
+5,0.5172,0.0742,0.0281,0.0461,0.7656
+10,0.5172,0.0742,0.0233,0.0509,0.8438
+20,0.5172,0.0950,0.0269,0.0682,0.9062

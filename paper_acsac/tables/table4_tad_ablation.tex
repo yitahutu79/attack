@@ -1,0 +1,17 @@
+\begin{table}[t]
+  \centering
+  \caption{TAD score ablation under identical strict calibration settings (target\_fpr=0.25).}
+  \label{tab:tad_ablation}
+  \small
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{lcccccc}
+    \toprule
+    Score Mode & Test FPR & Precision & Recall & F1 & AUC & AP \\
+    \midrule
+    critic\_only & 0.0591 & 0.9125 & 0.8419 & 0.8758 & 0.9536 & 0.9509 \\
+    feature\_deviation\_only & 0.0496 & 0.9337 & 0.9536 & 0.9436 & 0.9768 & 0.9616 \\
+    fused (\(\alpha=0.24\)) & 0.0460 & 0.9384 & 0.9568 & 0.9475 & 0.9783 & 0.9631 \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table}

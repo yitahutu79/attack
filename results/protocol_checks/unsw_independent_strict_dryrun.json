@@ -1,0 +1,28 @@
+{
+  "task": "cross_dataset_minimal_tcn_protocol_check",
+  "dataset": "unsw_nb15",
+  "window_size": 128,
+  "stride": 16,
+  "anomaly_ratio": 0.15,
+  "independent_calibration": true,
+  "calib_ratio": 0.2,
+  "strict_no_leakage": true,
+  "protocol_check": {
+    "scaler_fit_uses": "model_train_benign only",
+    "model_training_uses": "model_train_benign",
+    "threshold_calibration_uses": "independent_calibration_benign",
+    "tad_reference_uses": "model_train_benign"
+  },
+  "n_train_windows": 2793,
+  "n_calib_windows": 693,
+  "n_test_windows": 5138,
+  "train_files": [
+    "Training and Testing Sets/UNSW_NB15_training-set.csv"
+  ],
+  "calib_files": [
+    "independent_calibration_from_train_benign_records"
+  ],
+  "test_files": [
+    "Training and Testing Sets/UNSW_NB15_testing-set.csv"
+  ]
+}

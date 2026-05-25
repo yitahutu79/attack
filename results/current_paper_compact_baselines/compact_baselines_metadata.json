@@ -1,0 +1,463 @@
+{
+  "created_at": "2026-04-28T19:26:07.338778+00:00",
+  "runs": [
+    {
+      "time_utc": "2026-04-28T19:26:07.338464+00:00",
+      "dataset": "unsw_nb15",
+      "mode": "dry_run_protocol_check",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 2793,
+        "n_calib_benign_windows": 693,
+        "n_test_windows": 5138,
+        "n_test_benign_windows": 2294,
+        "n_test_anomalous_windows": 2844
+      },
+      "protocol": {
+        "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+        "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+        "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-28T19:26:10.923125+00:00",
+      "dataset": "swat",
+      "mode": "dry_run_protocol_check",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 1019,
+        "n_calib_benign_windows": 335,
+        "n_test_windows": 1433,
+        "n_test_benign_windows": 335,
+        "n_test_anomalous_windows": 1098
+      },
+      "protocol": {
+        "split_source": "swat_formal_unsupervised_split_60_20_20",
+        "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+        "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-28T19:48:18.270892+00:00",
+      "dataset": "cicids2017",
+      "mode": "full_eval",
+      "device": "mps",
+      "target_fprs": [
+        0.25
+      ],
+      "baselines_requested": [
+        "isolationforest",
+        "oneclasssvm",
+        "mlp",
+        "ganomaly",
+        "tranad",
+        "timesnet",
+        "dlinear",
+        "ours"
+      ],
+      "rows_written": 5,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 66366,
+        "n_calib_benign_windows": 16591,
+        "n_test_windows": 43897,
+        "n_test_benign_windows": 25335,
+        "n_test_anomalous_windows": 18562
+      },
+      "protocol": {
+        "split_source": "explicit_cicids_train_test + strict_independent_calibration",
+        "train_spec": "Tuesday-WorkingHours.pcap_ISCX.csv;Wednesday-workingHours.pcap_ISCX.csv;Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv;Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+        "test_spec": "Friday-WorkingHours-Morning.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T05:16:26.636667+00:00",
+      "dataset": "swat",
+      "mode": "full_eval",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "baselines_requested": [
+        "isolationforest",
+        "oneclasssvm",
+        "mlp",
+        "ganomaly",
+        "tranad",
+        "timesnet",
+        "dlinear",
+        "ours"
+      ],
+      "rows_written": 8,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 1019,
+        "n_calib_benign_windows": 335,
+        "n_test_windows": 1433,
+        "n_test_benign_windows": 335,
+        "n_test_anomalous_windows": 1098
+      },
+      "protocol": {
+        "split_source": "swat_formal_unsupervised_split_60_20_20",
+        "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+        "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T05:18:41.466494+00:00",
+      "dataset": "unsw_nb15",
+      "mode": "full_eval",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "baselines_requested": [
+        "isolationforest",
+        "oneclasssvm",
+        "mlp",
+        "ganomaly",
+        "tranad",
+        "timesnet",
+        "dlinear",
+        "ours"
+      ],
+      "rows_written": 10,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 2793,
+        "n_calib_benign_windows": 693,
+        "n_test_windows": 5138,
+        "n_test_benign_windows": 2294,
+        "n_test_anomalous_windows": 2844
+      },
+      "protocol": {
+        "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+        "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+        "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T06:20:27.410100+00:00",
+      "dataset": "cicids2017",
+      "mode": "full_eval",
+      "device": "mps",
+      "target_fprs": [
+        0.25
+      ],
+      "baselines_requested": [
+        "mlp"
+      ],
+      "rows_written": 1,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 66366,
+        "n_calib_benign_windows": 16591,
+        "n_test_windows": 43897,
+        "n_test_benign_windows": 25335,
+        "n_test_anomalous_windows": 18562
+      },
+      "protocol": {
+        "split_source": "explicit_cicids_train_test + strict_independent_calibration",
+        "train_spec": "Tuesday-WorkingHours.pcap_ISCX.csv;Wednesday-workingHours.pcap_ISCX.csv;Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv;Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+        "test_spec": "Friday-WorkingHours-Morning.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:09:41.915531+00:00",
+      "dataset": "swat",
+      "mode": "dry_run_protocol_check",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 1019,
+        "n_calib_benign_windows": 335,
+        "n_test_windows": 1433,
+        "n_test_benign_windows": 335,
+        "n_test_anomalous_windows": 1098
+      },
+      "protocol": {
+        "split_source": "swat_formal_unsupervised_split_60_20_20",
+        "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+        "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:09:45.174723+00:00",
+      "dataset": "unsw_nb15",
+      "mode": "dry_run_protocol_check",
+      "device": "mps",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 2793,
+        "n_calib_benign_windows": 693,
+        "n_test_windows": 5138,
+        "n_test_benign_windows": 2294,
+        "n_test_anomalous_windows": 2844
+      },
+      "protocol": {
+        "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+        "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+        "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:14:33.791246+00:00",
+      "dataset": "unsw_nb15",
+      "mode": "dry_run_protocol_check",
+      "device": "cpu",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 2793,
+        "n_calib_benign_windows": 693,
+        "n_test_windows": 5138,
+        "n_test_benign_windows": 2294,
+        "n_test_anomalous_windows": 2844
+      },
+      "protocol": {
+        "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+        "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+        "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:14:34.680377+00:00",
+      "dataset": "swat",
+      "mode": "dry_run_protocol_check",
+      "device": "cpu",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "counts": {
+        "n_train_benign_windows": 1019,
+        "n_calib_benign_windows": 335,
+        "n_test_windows": 1433,
+        "n_test_benign_windows": 335,
+        "n_test_anomalous_windows": 1098
+      },
+      "protocol": {
+        "split_source": "swat_formal_unsupervised_split_60_20_20",
+        "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+        "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:46:52.425881+00:00",
+      "dataset": "swat",
+      "mode": "full_eval",
+      "device": "cpu",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "baselines_requested": [
+        "ours"
+      ],
+      "rows_written": 2,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 1019,
+        "n_calib_benign_windows": 335,
+        "n_test_windows": 1433,
+        "n_test_benign_windows": 335,
+        "n_test_anomalous_windows": 1098
+      },
+      "protocol": {
+        "split_source": "swat_formal_unsupervised_split_60_20_20",
+        "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+        "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    },
+    {
+      "time_utc": "2026-04-29T16:48:26.850669+00:00",
+      "dataset": "unsw_nb15",
+      "mode": "full_eval",
+      "device": "cpu",
+      "target_fprs": [
+        0.05,
+        0.15
+      ],
+      "baselines_requested": [
+        "ours"
+      ],
+      "rows_written": 2,
+      "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.csv",
+      "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.md",
+      "counts": {
+        "n_train_benign_windows": 2793,
+        "n_calib_benign_windows": 693,
+        "n_test_windows": 5138,
+        "n_test_benign_windows": 2294,
+        "n_test_anomalous_windows": 2844
+      },
+      "protocol": {
+        "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+        "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+        "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+        "scaler_fit_source": "model_train_benign only",
+        "model_training_source": "model_train_benign",
+        "threshold_calibration_source": "independent_calibration_benign"
+      }
+    }
+  ],
+  "datasets": {
+    "unsw_nb15": {
+      "last_run_at": "2026-04-29T16:48:26.851184+00:00",
+      "last_run": {
+        "time_utc": "2026-04-29T16:48:26.850669+00:00",
+        "dataset": "unsw_nb15",
+        "mode": "full_eval",
+        "device": "cpu",
+        "target_fprs": [
+          0.05,
+          0.15
+        ],
+        "baselines_requested": [
+          "ours"
+        ],
+        "rows_written": 2,
+        "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.csv",
+        "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/unsw_nb15_compact_baselines.md",
+        "counts": {
+          "n_train_benign_windows": 2793,
+          "n_calib_benign_windows": 693,
+          "n_test_windows": 5138,
+          "n_test_benign_windows": 2294,
+          "n_test_anomalous_windows": 2844
+        },
+        "protocol": {
+          "split_source": "unsw_official_train_test + strict_independent_calibration_from_train_benign",
+          "train_spec": "Training and Testing Sets/UNSW_NB15_training-set.csv",
+          "test_spec": "Training and Testing Sets/UNSW_NB15_testing-set.csv",
+          "scaler_fit_source": "model_train_benign only",
+          "model_training_source": "model_train_benign",
+          "threshold_calibration_source": "independent_calibration_benign"
+        }
+      }
+    },
+    "swat": {
+      "last_run_at": "2026-04-29T16:46:52.426271+00:00",
+      "last_run": {
+        "time_utc": "2026-04-29T16:46:52.425881+00:00",
+        "dataset": "swat",
+        "mode": "full_eval",
+        "device": "cpu",
+        "target_fprs": [
+          0.05,
+          0.15
+        ],
+        "baselines_requested": [
+          "ours"
+        ],
+        "rows_written": 2,
+        "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.csv",
+        "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/swat_compact_baselines.md",
+        "counts": {
+          "n_train_benign_windows": 1019,
+          "n_calib_benign_windows": 335,
+          "n_test_windows": 1433,
+          "n_test_benign_windows": 335,
+          "n_test_anomalous_windows": 1098
+        },
+        "protocol": {
+          "split_source": "swat_formal_unsupervised_split_60_20_20",
+          "train_spec": "benign_data/benign_samples_5sec.csv[:0.60]",
+          "test_spec": "benign_data/benign_samples_5sec.csv[0.80:] + attack_data/attack_samples_5sec.csv",
+          "scaler_fit_source": "model_train_benign only",
+          "model_training_source": "model_train_benign",
+          "threshold_calibration_source": "independent_calibration_benign"
+        }
+      }
+    },
+    "cicids2017": {
+      "last_run_at": "2026-04-29T06:20:27.419755+00:00",
+      "last_run": {
+        "time_utc": "2026-04-29T06:20:27.410100+00:00",
+        "dataset": "cicids2017",
+        "mode": "full_eval",
+        "device": "mps",
+        "target_fprs": [
+          0.25
+        ],
+        "baselines_requested": [
+          "mlp"
+        ],
+        "rows_written": 1,
+        "csv": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.csv",
+        "md": "/Users/lijie/Desktop/work/attack/results/current_paper_compact_baselines/cicids2017_compact_baselines.md",
+        "counts": {
+          "n_train_benign_windows": 66366,
+          "n_calib_benign_windows": 16591,
+          "n_test_windows": 43897,
+          "n_test_benign_windows": 25335,
+          "n_test_anomalous_windows": 18562
+        },
+        "protocol": {
+          "split_source": "explicit_cicids_train_test + strict_independent_calibration",
+          "train_spec": "Tuesday-WorkingHours.pcap_ISCX.csv;Wednesday-workingHours.pcap_ISCX.csv;Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv;Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+          "test_spec": "Friday-WorkingHours-Morning.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv;Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+          "scaler_fit_source": "model_train_benign only",
+          "model_training_source": "model_train_benign",
+          "threshold_calibration_source": "independent_calibration_benign"
+        }
+      }
+    }
+  }
+}

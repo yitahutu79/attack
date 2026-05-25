@@ -297,12 +297,28 @@ def make_row(
     }
 
 
+def split_total_by_calib_ratio(total: int, calib_ratio: float) -> tuple[int, int]:
+    total = int(total)
+    ratio = float(calib_ratio)
+    if total <= 0:
+        return 0, 0
+    if total == 1:
+        return 1, 0
+    calib = int(total * ratio)
+    calib = max(calib, 1)
+    calib = min(calib, total - 1)
+    train = total - calib
+    return int(train), int(calib)
+
+
 def build_cicids_rows(
     *,
     data_dir: Path,
     window_size: int,
     stride: int,
     anomaly_ratio_threshold: float,
+    independent_calibration: bool = False,
+    calib_ratio: float = 0.2,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     payloads = [
         load_payload(data_dir, "cicids2017", rel_path)
@@ -331,6 +347,19 @@ def build_cicids_rows(
     )
     benign_train_records = int(sum(np.sum(p["labels"] == 0) for p in train_payloads))
     raw_records_total = int(sum(int(p["raw_records"]) for p in payloads))
+    train_benign_windows_total = int(train_stats["windows"])
+
+    if independent_calibration:
+        train_windows, calib_windows = split_total_by_calib_ratio(train_benign_windows_total, calib_ratio)
+        train_records, calib_records = split_total_by_calib_ratio(benign_train_records, calib_ratio)
+        calib_pct = int(round(100.0 * calib_ratio))
+        calib_split_name = f"calibration(independent_train_benign_{calib_pct}pct)"
+    else:
+        train_windows = train_benign_windows_total
+        calib_windows = train_benign_windows_total
+        train_records = int(train_stats["records"])
+        calib_records = benign_train_records
+        calib_split_name = "calibration(train_benign_reuse)"
 
     rows = [
         make_row(
@@ -348,9 +377,9 @@ def build_cicids_rows(
         make_row(
             dataset="CICIDS2017",
             split="train",
-            records=int(train_stats["records"]),
-            windows=int(train_stats["windows"]),
-            benign_windows=int(train_stats["benign_windows"]),
+            records=int(train_records),
+            windows=int(train_windows),
+            benign_windows=int(train_windows),
             anomalous_windows=int(train_stats["anomalous_windows"]),
             attack_types="-",
             window_size=window_size,
@@ -359,10 +388,10 @@ def build_cicids_rows(
         ),
         make_row(
             dataset="CICIDS2017",
-            split="calibration(train_benign_reuse)",
-            records=benign_train_records,
-            windows=int(train_stats["windows"]),
-            benign_windows=int(train_stats["windows"]),
+            split=calib_split_name,
+            records=int(calib_records),
+            windows=int(calib_windows),
+            benign_windows=int(calib_windows),
             anomalous_windows=0,
             attack_types="-",
             window_size=window_size,
@@ -382,9 +411,16 @@ def build_cicids_rows(
             anomaly_ratio_threshold=anomaly_ratio_threshold,
         ),
     ]
-    notes = [
-        "CICIDS2017 calibration windows are reused from benign train windows (no separate calibration file split).",
-    ]
+    if independent_calibration:
+        calib_pct = int(round(100.0 * calib_ratio))
+        train_pct = 100 - calib_pct
+        notes = [
+            f"CICIDS2017 independent calibration: split benign train windows chronologically into {train_pct}% train / {calib_pct}% calibration.",
+        ]
+    else:
+        notes = [
+            "CICIDS2017 calibration windows are reused from benign train windows (no separate calibration file split).",
+        ]
     return rows, notes
 
 
@@ -507,6 +543,8 @@ def build_unsw_rows(
     window_size: int,
     stride: int,
     anomaly_ratio_threshold: float,
+    independent_calibration: bool = False,
+    calib_ratio: float = 0.2,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     train_payload = load_payload(data_dir, "unsw_nb15", UNSW_TRAIN_FILE)
     test_payload = load_payload(data_dir, "unsw_nb15", UNSW_TEST_FILE)
@@ -530,6 +568,19 @@ def build_unsw_rows(
     )
     benign_train_records = int(np.sum(train_payload["labels"] == 0))
     raw_records_total = int(train_payload["raw_records"] + test_payload["raw_records"])
+    train_benign_windows_total = int(train_stats["windows"])
+
+    if independent_calibration:
+        train_windows, calib_windows = split_total_by_calib_ratio(train_benign_windows_total, calib_ratio)
+        train_records, calib_records = split_total_by_calib_ratio(benign_train_records, calib_ratio)
+        calib_pct = int(round(100.0 * calib_ratio))
+        calib_split_name = f"calibration(independent_train_benign_{calib_pct}pct)"
+    else:
+        train_windows = train_benign_windows_total
+        calib_windows = train_benign_windows_total
+        train_records = int(train_stats["records"])
+        calib_records = benign_train_records
+        calib_split_name = "calibration(train_benign_reuse)"
 
     rows = [
         make_row(
@@ -547,9 +598,9 @@ def build_unsw_rows(
         make_row(
             dataset="UNSW-NB15",
             split="train",
-            records=int(train_stats["records"]),
-            windows=int(train_stats["windows"]),
-            benign_windows=int(train_stats["benign_windows"]),
+            records=int(train_records),
+            windows=int(train_windows),
+            benign_windows=int(train_windows),
             anomalous_windows=int(train_stats["anomalous_windows"]),
             attack_types="-",
             window_size=window_size,
@@ -558,10 +609,10 @@ def build_unsw_rows(
         ),
         make_row(
             dataset="UNSW-NB15",
-            split="calibration(train_benign_reuse)",
-            records=benign_train_records,
-            windows=int(train_stats["windows"]),
-            benign_windows=int(train_stats["windows"]),
+            split=calib_split_name,
+            records=int(calib_records),
+            windows=int(calib_windows),
+            benign_windows=int(calib_windows),
             anomalous_windows=0,
             attack_types="-",
             window_size=window_size,
@@ -581,9 +632,16 @@ def build_unsw_rows(
             anomaly_ratio_threshold=anomaly_ratio_threshold,
         ),
     ]
-    notes = [
-        "UNSW-NB15 calibration windows are reused from benign train windows (official split has no standalone calibration file).",
-    ]
+    if independent_calibration:
+        calib_pct = int(round(100.0 * calib_ratio))
+        train_pct = 100 - calib_pct
+        notes = [
+            f"UNSW-NB15 independent calibration: split benign train windows chronologically into {train_pct}% train / {calib_pct}% calibration.",
+        ]
+    else:
+        notes = [
+            "UNSW-NB15 calibration windows are reused from benign train windows (official split has no standalone calibration file).",
+        ]
     return rows, notes
 
 
@@ -647,6 +705,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--cicids-data-dir", default="dataset/CICIDS2017")
     parser.add_argument("--swat-data-dir", default="dataset/SWaT")
     parser.add_argument("--unsw-data-dir", default="dataset/UNSW-NB15")
+    parser.add_argument(
+        "--independent-calibration",
+        action="store_true",
+        help="For CICIDS2017/UNSW-NB15, split benign train windows chronologically into train/calibration.",
+    )
+    parser.add_argument(
+        "--calib-ratio",
+        type=float,
+        default=0.2,
+        help="Calibration ratio used with --independent-calibration (default: 0.2).",
+    )
     parser.add_argument("--out-csv", default=str(ROOT / "split_window_statistics.csv"))
     parser.add_argument("--out-md", default=str(ROOT / "split_window_statistics.md"))
     return parser.parse_args()
@@ -657,12 +726,17 @@ def main() -> None:
     window_size = int(args.window_size)
     stride = int(args.stride)
     anomaly_ratio_threshold = float(args.anomaly_ratio_threshold)
+    calib_ratio = float(args.calib_ratio)
+    if not (0.0 < calib_ratio < 1.0):
+        raise ValueError("--calib-ratio must be in (0,1).")
 
     cicids_rows, cicids_notes = build_cicids_rows(
         data_dir=(ROOT / args.cicids_data_dir).resolve(),
         window_size=window_size,
         stride=stride,
         anomaly_ratio_threshold=anomaly_ratio_threshold,
+        independent_calibration=bool(args.independent_calibration),
+        calib_ratio=calib_ratio,
     )
     swat_rows, swat_notes = build_swat_rows(
         data_dir=(ROOT / args.swat_data_dir).resolve(),
@@ -677,6 +751,8 @@ def main() -> None:
         window_size=window_size,
         stride=stride,
         anomaly_ratio_threshold=anomaly_ratio_threshold,
+        independent_calibration=bool(args.independent_calibration),
+        calib_ratio=calib_ratio,
     )
 
     rows = cicids_rows + swat_rows + unsw_rows

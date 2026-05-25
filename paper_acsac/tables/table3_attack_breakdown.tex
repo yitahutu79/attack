@@ -1,0 +1,19 @@
+\begin{table*}[t]
+  \centering
+  \caption{Attack-type breakdown at the selected fixed threshold \(\tau=0.425420\) (target\_fpr \(=0.25\)). Attack Share gives each family's proportion among anomalous test windows. Recall@\(\tau\) and Miss Rate are fixed-threshold detection and miss ratios. Avg/Median Anomaly Score summarize pre-threshold fused TAD anomaly scores per family. Score Gap indicates whether a family is, on average, above (\(>0\)) or below (\(<0\)) the alarm threshold.}
+  \label{tab:attack_breakdown}
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Attack Type & Total & Attack Share (\%) & Detected (TP) & Missed (FN) & Recall@\(\tau\) & Miss Rate & Avg Anomaly Score & Median Anomaly Score & Score Gap to \(\tau\) \\
+    \midrule
+    Bot & 148 & 0.80 & 0 & 148 & 0.0000 & 1.0000 & 0.2673 & 0.2771 & -0.1581 \\
+    DDoS & 8117 & 43.73 & 7833 & 284 & 0.9650 & 0.0350 & 0.5691 & 0.5117 & +0.1437 \\
+    PortScan & 10297 & 55.47 & 9928 & 369 & 0.9642 & 0.0358 & 0.4993 & 0.4939 & +0.0739 \\
+    \bottomrule
+  \end{tabular}
+  }
+  \vspace{4pt}
+  \parbox{\textwidth}{\small \textit{Note:} \(\text{Score Gap to }\tau = \text{Avg Anomaly Score} - \tau\). Positive values indicate the family mean is above the alarm threshold; negative values indicate it is below.}
+\end{table*}

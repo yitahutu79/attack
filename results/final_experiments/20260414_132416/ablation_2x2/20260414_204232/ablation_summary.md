@@ -1,6 +1,0 @@
-| disc_pooling | gan_loss | window | stride | score_mode | score_alpha | auc | ap | calib_f1 | calib_recall | calib_precision | test_benign_fpr | json |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mean | vanilla | 128 | 16 | fused | 0.2400 | 0.9469 | 0.9289 | 0.8258 | 0.7261 | 0.9574 | 0.0237 | attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_204232/eval_w128_s16_fused.json |
-| attn | wgan-gp | 128 | 16 | fused | 0.2400 | 0.9464 | 0.9351 | 0.7958 | 0.6640 | 0.9928 | 0.0036 | attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_225204/eval_w128_s16_fused.json |
-| mean | wgan-gp | 128 | 16 | fused | 0.2400 | 0.8253 | 0.8218 | 0.6176 | 0.4851 | 0.8498 | 0.0628 | attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_212058/eval_w128_s16_fused.json |
-| attn | vanilla | 128 | 16 | fused | 0.2400 | 0.8367 | 0.6872 | 0.4807 | 0.3697 | 0.6868 | 0.1235 | attack/results/final_experiments/20260414_132416/ablation_2x2/20260414_204232/20260414_210038/eval_w128_s16_fused.json |

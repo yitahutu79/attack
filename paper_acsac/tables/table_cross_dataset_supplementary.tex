@@ -1,0 +1,17 @@
+\begin{table*}[t]
+  \centering
+  \caption{Strict-protocol cross-dataset summary. CICIDS2017 is reported at the selected main operating point from the calibration sweep, while SWaT and UNSW-NB15 are reported at a fixed supplementary target\_fpr=0.05 to avoid dataset-specific favorable target selection; these rows are not intended as a direct cross-dataset ranking table.}
+  \label{tab:cross_dataset_supplementary}
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{llcccccccc}
+    \toprule
+    Dataset & Role & target\_fpr & AUC & AP & Test FPR & Precision & Recall & F1 & Interpretation \\
+    \midrule
+    CICIDS2017 & Primary calibrated evidence & 0.25 & 0.978349 & 0.963120 & 0.046023 & 0.938395 & 0.956847 & 0.947531 & Primary evidence \\
+    SWaT & Supplementary ICS validation & 0.05 & 0.990444 & 0.997744 & 0.000000 & 1.000000 & 0.989982 & 0.994966 & Supplementary ICS check \\
+    UNSW-NB15 & Distribution-shift stress test & 0.05 & 0.806125 & 0.754875 & 0.027463 & 0.240964 & 0.007032 & 0.013666 & Threshold-transfer failure \\
+    \bottomrule
+  \end{tabular}
+  }
+\end{table*}

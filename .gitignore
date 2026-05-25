@@ -3,8 +3,11 @@
 
 # Python cache
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
+.pytest_cache/
+.mypy_cache/
 
 _archive/
 
@@ -21,6 +24,15 @@ paper/*.fls
 paper/*.log
 paper/*.out
 paper/*.synctex.gz
+paper_acsac/*.aux
+paper_acsac/*.bbl
+paper_acsac/*.blg
+paper_acsac/*.fdb_latexmk
+paper_acsac/*.fls
+paper_acsac/*.log
+paper_acsac/*.out
+paper_acsac/*.synctex.gz
+paper_acsac/*.toc
 
 # Runtime logs and temporary outputs
 *.pid
@@ -42,3 +54,20 @@ external/**/Results_archive/**/*.err
 
 # Keep curated result tables/docs, but ignore notebook noise
 .ipynb_checkpoints/
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Local writeups / briefing slides (not for artifact upload)
+presentation_week_update_*.html
+*_progress_briefing_*.html
+*_reading_priority*.md
+UPLOAD_INVENTORY_ATTACK.md
+
+# Keep repo artifact-focused: ignore secondary docs/notes inside outputs/modules
+results/**/*.md
+baselines/README.md
+models/README.md
+pipelines/README.md
+dataset/**/README.md

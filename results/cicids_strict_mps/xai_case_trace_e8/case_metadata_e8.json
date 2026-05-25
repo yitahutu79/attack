@@ -1,0 +1,43 @@
+{
+  "selected_window_index": 13570,
+  "attack_type": "DDoS",
+  "source_file": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+  "source_file_path": "/Users/lijie/Desktop/work/attack/dataset/CICIDS2017/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+  "start_row": 26348,
+  "end_row": 26475,
+  "attack_ratio": 1.0,
+  "threshold": 0.42542,
+  "fused_score": 0.5065301656723022,
+  "critic_score": 1.0,
+  "feature_deviation_score": 0.3506975769996643,
+  "critic_score_raw": 0.9999719858169556,
+  "feature_deviation_score_raw": 14.06037425994873,
+  "decision": "alarm",
+  "selection_rule": {
+    "rule": "median_detected_score",
+    "preferred_attack_types": [
+      "DDoS",
+      "PortScan"
+    ],
+    "pool_type": "preferred_detected",
+    "pool_size": 17761,
+    "seed": 42
+  },
+  "ig_target": "fused_tad_score",
+  "attention_available": true,
+  "protocol_metadata": {
+    "dataset": "cicids2017",
+    "window_size": 128,
+    "stride": 16,
+    "anomaly_ratio_threshold": 0.15,
+    "independent_calibration": true,
+    "calib_ratio": 0.2,
+    "strict_no_leakage": true,
+    "scaler_fit_source": "model_train_benign only",
+    "model_train_source": "model_train_benign",
+    "threshold_calibration_source": "independent_calibration_benign",
+    "tad_reference_source": "model_train_benign",
+    "selected_device": "mps",
+    "checkpoint": "/Users/lijie/Desktop/work/attack/results/cicids_strict_mps/selected_epoch_008_main.pt"
+  }
+}

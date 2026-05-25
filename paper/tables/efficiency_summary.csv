@@ -1,3 +1,0 @@
-dataset,train_windows,test_windows,epochs,train_seconds,seconds_per_epoch,checkpoint_mb,source
-SWaT,1019,1433,8,683.9518284590013,82.12839599487597,1.5348548889160156,attack/results/ablation_swat_attn_prob/ours.json
-TON_IoT,37493,18743,8,10048.94913579199,1245.9846540105027,1.3858070373535156,attack/results/ablation_toniot_attn_prob/ours.json

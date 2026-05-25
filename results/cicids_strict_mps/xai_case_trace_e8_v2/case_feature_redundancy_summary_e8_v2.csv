@@ -1,0 +1,11 @@
+selected_feature,original_raw_rank,mean_abs_ig,max_abs_corr_with_previous_selected,evidence_group,note
+Bwd Packet Length Std,1,0.0003898586146533,0.0,packet length variability,representative after correlation pruning
+PSH Flag Count,2,0.0003550253168214,0.5837944142799629,TCP flag behavior,representative after correlation pruning
+URG Flag Count,9,0.0001179796672658,0.0482182116618576,TCP flag behavior,representative after correlation pruning
+Idle Min,11,7.826204819139093e-05,0.7196911527319362,temporal interval / idle behavior,representative after correlation pruning
+SYN Flag Count,12,7.74518121033907e-05,0.022592594448687,TCP flag behavior,representative after correlation pruning
+Bwd IAT Total,13,6.986752850934863e-05,0.7263885854072623,temporal interval / idle behavior,representative after correlation pruning
+Destination Port,14,6.631260475842282e-05,0.451876201617946,port-related feature,representative after correlation pruning
+Flow IAT Mean,21,3.3984870242420584e-05,0.8482369773622311,temporal interval / idle behavior,representative after correlation pruning
+Min Packet Length,27,1.9666171283461154e-05,0.8491977934435617,packet length variability,representative after correlation pruning
+FIN Flag Count,28,1.5171127415669616e-05,0.04323953269479,TCP flag behavior,representative after correlation pruning
