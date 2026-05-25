@@ -1,3 +1,4 @@
+# Pip lock snapshot for artifact reruns (use conda lock when possible).
 certifi==2024.8.30
 cloudpickle==3.1.2
 contourpy @ file:///Users/runner/miniforge3/conda-bld/contourpy_1744743163818/work

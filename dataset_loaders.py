@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Shared dataset loaders for window-level anomaly detection experiments."""
+"""Shared dataset loaders for window-level anomaly detection experiments.
+
+This module is used by the cleaned ACSAC artifact workspace and supports
+strict role-separated window construction/evaluation workflows.
+"""
 
 from __future__ import annotations
 

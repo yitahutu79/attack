@@ -1,3 +1,5 @@
+# Minimal environment spec for the cleaned ACSAC artifact workspace.
+# For exact reproducibility, prefer environment.lock.yml.
 name: attack
 channels:
   - conda-forge

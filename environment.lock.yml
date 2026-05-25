@@ -1,3 +1,5 @@
+# Locked environment for this cleaned ACSAC artifact snapshot.
+# Generated/maintained for reproducible reruns.
 name: attack
 channels:
   - conda-forge
