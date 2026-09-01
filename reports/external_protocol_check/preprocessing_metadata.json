@@ -1,0 +1,51 @@
+{
+  "categorical_vocab_sizes": {
+    "conn_state": 14,
+    "proto": 4,
+    "service": 6
+  },
+  "dataset": "TON_IoT",
+  "dropped_numeric_cols": {},
+  "feature_count": 38,
+  "feature_names_path": "runs/external_protocol_check/features/feature_names.json",
+  "imputer_values": {
+    "dns_qclass": 0.0,
+    "dns_qtype": 0.0,
+    "dns_rcode": 0.0,
+    "dst_bytes": 0.0,
+    "dst_ip_bytes": 0.0,
+    "dst_pkts": 0.0,
+    "duration": 0.0,
+    "http_request_body_len": 0.0,
+    "http_response_body_len": 0.0,
+    "http_status_code": 0.0,
+    "missed_bytes": 0.0,
+    "src_bytes": 0.0,
+    "src_ip_bytes": 0.0,
+    "src_pkts": 0.0
+  },
+  "kept_numeric_cols": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "missed_bytes",
+    "src_pkts",
+    "src_ip_bytes",
+    "dst_pkts",
+    "dst_ip_bytes",
+    "dns_qclass",
+    "dns_qtype",
+    "dns_rcode",
+    "http_request_body_len",
+    "http_response_body_len",
+    "http_status_code"
+  ],
+  "missing_value_policy": "non-numeric placeholders normalized to missing; train-only medians used for kept numeric columns",
+  "normal_reference_for_score_normalization": "model_train_benign",
+  "stride": 16,
+  "train_only_categorical_fit": "model_train_benign",
+  "train_only_scaler_fit": "model_train_benign",
+  "window_manifest_hash": "b61067a95abf9b8acb32eb97d06cc23f059744881cadd89371b8d6a8d70f2486",
+  "window_manifest_path": "runs/external_protocol_check/windows/selected_window_manifest.csv",
+  "window_size": 128
+}

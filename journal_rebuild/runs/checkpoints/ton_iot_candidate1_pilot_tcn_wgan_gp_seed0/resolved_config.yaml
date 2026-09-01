@@ -1,0 +1,225 @@
+{
+  "data_config": {
+    "anomaly_ratio": 0.15,
+    "categorical_cols": [
+      "proto",
+      "service",
+      "conn_state"
+    ],
+    "clip_minmax": true,
+    "data_dir": "dataset/TON_IoT/Processed_datasets/Processed_Network_dataset",
+    "data_manifest_path": "journal_rebuild/data/ton_iot_candidate1/manifests/data_manifest.json",
+    "dataset_name": "ton_iot_candidate1",
+    "drop_contaminated_benign_rows": true,
+    "drop_missing_ratio_threshold": 0.995,
+    "excluded_text_cols": [
+      "dns_query",
+      "dns_AA",
+      "dns_RD",
+      "dns_RA",
+      "dns_rejected",
+      "ssl_version",
+      "ssl_cipher",
+      "ssl_resumed",
+      "ssl_established",
+      "ssl_subject",
+      "ssl_issuer",
+      "http_trans_depth",
+      "http_method",
+      "http_uri",
+      "http_referrer",
+      "http_version",
+      "http_user_agent",
+      "http_orig_mime_types",
+      "http_resp_mime_types",
+      "weird_name",
+      "weird_addl",
+      "weird_notice"
+    ],
+    "forbidden_model_cols": [
+      "label",
+      "type",
+      "ts",
+      "src_ip",
+      "dst_ip",
+      "src_port",
+      "dst_port"
+    ],
+    "manifest_path": "journal_rebuild/data/ton_iot_candidate1/manifests/canonical_split_manifest.csv",
+    "numeric_candidate_cols": [
+      "duration",
+      "src_bytes",
+      "dst_bytes",
+      "missed_bytes",
+      "src_pkts",
+      "src_ip_bytes",
+      "dst_pkts",
+      "dst_ip_bytes",
+      "dns_qclass",
+      "dns_qtype",
+      "dns_rcode",
+      "http_request_body_len",
+      "http_response_body_len",
+      "http_status_code"
+    ],
+    "processed_dir": "journal_rebuild/data/ton_iot_candidate1/processed",
+    "scaler": "minmax",
+    "scaler_path": "journal_rebuild/data/ton_iot_candidate1/processed/scaler.pkl",
+    "split_ranges": {
+      "independent_calibration_benign": [
+        1556423589,
+        1556423842
+      ],
+      "model_train_benign": [
+        1554198358,
+        1554364211
+      ],
+      "reference_benign": [
+        1556423460,
+        1556423585
+      ],
+      "test": [
+        1556485532,
+        1556549156
+      ]
+    },
+    "stride": 16,
+    "target_fpr": 0.25,
+    "window_manifest_path": "journal_rebuild/data/ton_iot_candidate1/manifests/window_manifest.csv",
+    "window_size": 128
+  },
+  "experiment_config": {
+    "device": "mps",
+    "epochs": 8,
+    "experiment_name": "ton_iot_candidate1_seed0",
+    "formal_run": {
+      "enabled": true
+    },
+    "models": [
+      "tcn_gan",
+      "tcn_wgan_gp"
+    ],
+    "seed": 0,
+    "smoke_test": {
+      "enabled": false,
+      "epochs": 1,
+      "max_calibration_windows": 512,
+      "max_reference_windows": 256,
+      "max_test_windows": 1024,
+      "max_train_windows": 1024
+    },
+    "stride": 16,
+    "target_fpr": 0.25,
+    "window_size": 128
+  },
+  "model_config": {
+    "alpha": 0.24,
+    "batch_size": 256,
+    "device": "mps",
+    "dropout": 0.2,
+    "epochs": 8,
+    "eval_batch_size": 512,
+    "experiment_name": "ton_iot_candidate1_seed0",
+    "formal_run": {
+      "enabled": true
+    },
+    "gp_lambda": 10.0,
+    "hidden_channels": [
+      128,
+      128
+    ],
+    "latent_dim": 64,
+    "loss_type": "wgan_gp",
+    "model_name": "tcn_wgan_gp",
+    "models": [
+      "tcn_gan",
+      "tcn_wgan_gp"
+    ],
+    "n_critic": 5,
+    "optimizer": {
+      "betas": [
+        0.5,
+        0.999
+      ],
+      "lr": 0.0003,
+      "name": "adam"
+    },
+    "pooling": "attn",
+    "score_mode": "fused",
+    "seed": 0,
+    "smoke_test": {
+      "enabled": false,
+      "epochs": 1,
+      "max_calibration_windows": 512,
+      "max_reference_windows": 256,
+      "max_test_windows": 1024,
+      "max_train_windows": 1024
+    },
+    "stride": 16,
+    "target_fpr": 0.25,
+    "window_size": 128
+  },
+  "research_config": {
+    "alpha": 0.24,
+    "dataset_name": "ton_iot_candidate1",
+    "epochs": 8,
+    "feature_names": [
+      "duration",
+      "src_bytes",
+      "dst_bytes",
+      "missed_bytes",
+      "src_pkts",
+      "src_ip_bytes",
+      "dst_pkts",
+      "dst_ip_bytes",
+      "dns_qclass",
+      "dns_qtype",
+      "dns_rcode",
+      "http_request_body_len",
+      "http_response_body_len",
+      "http_status_code",
+      "proto__icmp",
+      "proto__tcp",
+      "proto__udp",
+      "proto__UNK",
+      "service__MISSING",
+      "service__dhcp",
+      "service__dns",
+      "service__http",
+      "service__ssl",
+      "service__UNK",
+      "conn_state__oth",
+      "conn_state__rej",
+      "conn_state__rsto",
+      "conn_state__rstos0",
+      "conn_state__rstr",
+      "conn_state__rstrh",
+      "conn_state__s0",
+      "conn_state__s1",
+      "conn_state__s2",
+      "conn_state__s3",
+      "conn_state__sf",
+      "conn_state__sh",
+      "conn_state__shr",
+      "conn_state__UNK"
+    ],
+    "loss_type": "wgan_gp",
+    "manifest_hash": "d0fc8ba68b911884dbbb29a6ca7492c4cff570771cbeebc9b0044d9352dccc90",
+    "model_name": "tcn_wgan_gp",
+    "scaler_hash": "fac8cb22435677da88ffacb0c232d73ec982b9cd4bf7613a46612decb900194b",
+    "seed": 0,
+    "stride": 16,
+    "target_fpr": 0.25,
+    "window_manifest_hash": "144043b8cbe1bfe5b0e3d287f04a1bc0c56e6127872d6ddc22abfee0f73ef7f2",
+    "window_size": 128
+  },
+  "research_config_hash": "206b01eaaa354034e875bcc51cf44cdd678b5116d630df847afaf508627d806f",
+  "runtime_metadata": {
+    "device": "mps",
+    "git_commit": "f79c3078836c1bd1286338e544aae96d02334b24",
+    "run_id": "ton_iot_candidate1_pilot_tcn_wgan_gp_seed0",
+    "smoke": false,
+    "timestamp": "2026-07-15T14:26:42Z"
+  },
+  "runtime_metadata_hash": "521afc506284c640d43cb57940cee52a461d7919e6ac7443d8b012998ccad04f"
+}

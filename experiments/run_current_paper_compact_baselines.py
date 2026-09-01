@@ -47,8 +47,10 @@ from pipelines.run_tcn_cross_dataset_minimal import (  # noqa: E402
 )
 from baselines.window_baselines import (  # noqa: E402
     GANomalyNet,
+    LSTMAutoencoder,
     MinimalTranAD,
     train_ganomaly_model,
+    train_lstm_model,
     train_tranad_model,
 )
 from models.tcn_gan_experiment import (  # noqa: E402
@@ -602,6 +604,50 @@ def run_ganomaly(
     return s_te, s_cal, metrics, train_seconds, infer_seconds
 
 
+def run_ae(
+    bundle: DatasetBundle,
+    target_fpr: float,
+    device: torch.device,
+    epochs: int,
+    batch_size: int,
+    seed: int,
+) -> tuple[np.ndarray, np.ndarray, dict[str, float], float, float]:
+    torch.manual_seed(int(seed))
+    np.random.seed(int(seed))
+
+    x_tr = np.asarray(bundle.x_train_benign, dtype=np.float32)
+    x_cal = np.asarray(bundle.x_calib_benign, dtype=np.float32)
+    x_te = np.asarray(bundle.x_test, dtype=np.float32)
+
+    model = LSTMAutoencoder(bundle.feature_dim, hidden_dim=64, num_layers=2)
+
+    t0 = time.perf_counter()
+    model = train_lstm_model(
+        model,
+        x_tr,
+        model_type="ae",
+        epochs=int(epochs),
+        batch_size=int(batch_size),
+        lr=1e-3,
+        device=str(device),
+    )
+    train_seconds = float(time.perf_counter() - t0)
+    model = model.to(device)
+    model.eval()
+
+    def _scores(x: np.ndarray) -> np.ndarray:
+        x_tensor = torch.as_tensor(x, dtype=torch.float32, device=device)
+        return np.asarray(model.get_reconstruction_error(x_tensor, batch_size=1000), dtype=np.float32)
+
+    t1 = time.perf_counter()
+    s_cal = _scores(x_cal)
+    s_te = _scores(x_te)
+    infer_seconds = float(time.perf_counter() - t1)
+
+    metrics = calibrate_and_metrics(bundle.y_test, s_te, s_cal, target_fpr)
+    return s_te, s_cal, metrics, train_seconds, infer_seconds
+
+
 def run_mlp_supervised_strict(
     bundle: DatasetBundle,
     args: argparse.Namespace,
@@ -822,6 +868,7 @@ def method_aliases() -> dict[str, str]:
     return {
         "isolationforest": "IsolationForest",
         "oneclasssvm": "OneClassSVM",
+        "ae": "AE",
         "mlp": "MLP (Window)",
         "ganomaly": "GANomaly",
         "tranad": "TranAD",
@@ -1097,12 +1144,13 @@ def _merge_rows_with_existing(csv_path: Path, new_rows: list[dict[str, Any]]) ->
     method_order = {
         "IsolationForest": 1,
         "OneClassSVM": 2,
-        "MLP (Window)": 3,
-        "GANomaly": 4,
-        "TranAD": 5,
-        "Ours": 6,
-        "TimesNet": 7,
-        "DLinear": 8,
+        "AE": 3,
+        "MLP (Window)": 4,
+        "GANomaly": 5,
+        "TranAD": 6,
+        "Ours": 7,
+        "TimesNet": 8,
+        "DLinear": 9,
     }
 
     def _sort_key(r: dict[str, Any]) -> tuple[float, int, str]:
@@ -1306,6 +1354,20 @@ def main() -> None:
                 row["baseline_hyperparameters"] = json.dumps({"hidden_layer_sizes": [256, 128, 64], "max_iter": int(args.mlp_max_iter), **extra}, ensure_ascii=False)
                 row["notes"] = "supervised training uses train split window labels only; scaler fit on model_train_benign only; threshold calibrated on independent_calibration_benign"
                 rows.append(row)
+
+        # AE
+        if "ae" in baseline_keys:
+            method = alias["ae"]
+            row = row_common(args=args, bundle=bundle, method=method, target_fpr=tfpr, command_line=command_line, seed=int(args.seed))
+            s_te, _, m, t_train, t_inf = run_ae(bundle, tfpr, device, int(args.epochs), int(args.batch_size), int(args.seed))
+            auc, ap = safe_auc_ap(bundle.y_test, s_te)
+            finalize_row_metrics(row, auc=auc, ap=ap, metrics=m, n_test_benign=n_test_benign, train_seconds=t_train, inference_seconds=t_inf)
+            row["baseline_hyperparameters"] = json.dumps(
+                {"architecture": "LSTM-AE", "hidden_dim": 64, "num_layers": 2, "epochs": int(args.epochs), "batch_size": int(args.batch_size), "lr": 1e-3},
+                ensure_ascii=False,
+            )
+            row["notes"] = "unsupervised sequence autoencoder trained on model_train_benign only; threshold calibrated on independent_calibration_benign"
+            rows.append(row)
 
         # GANomaly
         if "ganomaly" in baseline_keys:

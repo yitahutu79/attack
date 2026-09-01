@@ -1,0 +1,1 @@
+"""Independent journal rebuild package."""

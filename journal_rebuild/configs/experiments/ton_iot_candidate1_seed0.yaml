@@ -1,0 +1,21 @@
+{
+  "experiment_name": "ton_iot_candidate1_seed0",
+  "seed": 0,
+  "device": "auto",
+  "target_fpr": 0.25,
+  "window_size": 128,
+  "stride": 16,
+  "epochs": 8,
+  "models": ["tcn_gan", "tcn_wgan_gp"],
+  "smoke_test": {
+    "enabled": true,
+    "epochs": 1,
+    "max_train_windows": 1024,
+    "max_reference_windows": 256,
+    "max_calibration_windows": 512,
+    "max_test_windows": 1024
+  },
+  "formal_run": {
+    "enabled": true
+  }
+}

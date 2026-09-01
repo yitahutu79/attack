@@ -1,0 +1,20 @@
+{
+  "model_name": "tcn_wgan_gp",
+  "loss_type": "wgan_gp",
+  "latent_dim": 64,
+  "hidden_channels": [128, 128],
+  "dropout": 0.2,
+  "pooling": "attn",
+  "optimizer": {
+    "name": "adam",
+    "lr": 0.0003,
+    "betas": [0.5, 0.999]
+  },
+  "batch_size": 256,
+  "eval_batch_size": 512,
+  "epochs": 8,
+  "n_critic": 5,
+  "gp_lambda": 10.0,
+  "alpha": 0.24,
+  "score_mode": "fused"
+}

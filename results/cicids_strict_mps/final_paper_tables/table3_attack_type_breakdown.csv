@@ -1,4 +1,0 @@
-attack_type,total,detected,recall,mean_score,note
-Bot,148,0,0.0000,0.2673,局限性：Bot 召回偏低
-DDoS,8117,7833,0.9650,0.5691,
-PortScan,10297,9928,0.9642,0.4993,

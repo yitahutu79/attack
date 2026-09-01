@@ -1,0 +1,10 @@
+# Candidate package pins transcribed from the historical repository environment lock.
+# Not proof of the exact environment for every saved run; not freshly installed or retrained.
+# This is not a cross-platform binary lock. Use Python 3.10.
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.15.2
+scikit-learn==1.7.2
+torch==2.2.2
+matplotlib==3.10.8
+tqdm==4.67.3

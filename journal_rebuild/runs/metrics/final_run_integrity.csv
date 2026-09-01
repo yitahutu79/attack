@@ -1,0 +1,11 @@
+run_id,model,seed,checkpoint_exists,resolved_config_exists,scores_calibration_exists,scores_test_exists,metrics_exists,run_metadata_exists,training_log_exists,manifest_hash_match,scaler_hash_match,research_config_hash_match,nan_or_inf_detected,score_constant_calibration,score_constant_test,checkpoint_reload_matches_saved_scores,training_failed_or_degenerate,integrity_pass
+pilot_tcn_gan_seed0,tcn_gan,0,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_gan_seed1,tcn_gan,1,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_gan_seed2,tcn_gan,2,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_gan_seed3,tcn_gan,3,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_gan_seed4,tcn_gan,4,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+pilot_tcn_wgan_gp_seed0,tcn_wgan_gp,0,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_wgan_gp_seed1,tcn_wgan_gp,1,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_wgan_gp_seed2,tcn_wgan_gp,2,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_wgan_gp_seed3,tcn_wgan_gp,3,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True
+formal_tcn_wgan_gp_seed4,tcn_wgan_gp,4,True,True,True,True,True,True,True,True,True,True,False,False,False,True,False,True

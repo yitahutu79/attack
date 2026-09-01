@@ -1,9 +1,0 @@
-\section{Conclusion}
-
-This paper presents a calibrated and auditable window-level NIDS pipeline based on TCN-WGAN-GP and fused TAD scoring under strict no-leakage evaluation. The primary evidence chain on CICIDS2017 shows that explicit independent benign calibration can deliver a strong operating point with low observed benign alarm rate while maintaining high recall and F1.
-
-Beyond aggregate metrics, we provide attack-type and score-component analyses, plus lightweight auditability evidence through IG masking and a traceable single-window DDoS case. These analyses support a deployment-oriented claim: window-level anomaly scoring can be calibrated and inspected, not only ranked.
-
-The paper also reports clear boundaries. Bot recall remains weak at the selected threshold, and fixed-threshold performance is sensitive under stronger perturbations. Supplementary SWaT and UNSW-NB15 results should be interpreted as bounded transfer evidence and stress-test limitations, not comprehensive cross-dataset generalization.
-
-Future work should focus on attack-family-aware calibration, adaptive thresholding under drift, and broader multi-environment validation under the same strict protocol constraints.

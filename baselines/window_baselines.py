@@ -18,7 +18,7 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 
 # Make `attack/` importable
-_REPO_ROOT = Path(__file__).resolve().parents[2]
+_REPO_ROOT = Path(__file__).resolve().parents[1]
 _REPO_ROOT_S = str(_REPO_ROOT)
 if _REPO_ROOT_S not in sys.path:
     sys.path.insert(0, _REPO_ROOT_S)
@@ -34,7 +34,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.metrics import roc_auc_score, average_precision_score, precision_recall_curve
 
-from attack.dataset_loaders import (
+from dataset_loaders import (
     list_dataset_files,
     load_windowed_chrono_unsupervised_split,
     load_windowed_dataset,

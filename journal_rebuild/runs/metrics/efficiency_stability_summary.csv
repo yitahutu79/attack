@@ -1,0 +1,3 @@
+model,parameter_count,single_epoch_training_time_mean_std,total_training_time_mean_std,inference_time_mean_std,windows_per_second_mean_std,generator_loss_end_mean_std,critic_loss_end_mean_std,gradient_penalty_mean_std,loss_explosion_count,f1_mean_std,auc_mean_std
+tcn_gan,404816,49.7211±0.7323,397.7688±5.8584,19.8602±1.1458,3053.2588±164.1105,3.3972±1.7290,0.4656±0.4720,NA (not logged in current artifact),0,0.7876±0.0895,0.8947±0.0588
+tcn_wgan_gp,404816,565.6775±131.4856,4525.4200±1051.8850,31.9215±10.3301,2094.4384±771.9270,-5.5062±2.1792,-3.4276±0.0930,NA (not logged in current artifact),0,0.8262±0.0450,0.9132±0.0295

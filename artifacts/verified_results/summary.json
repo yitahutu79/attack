@@ -1,0 +1,24 @@
+{
+  "main_runs": 10,
+  "external_runs": 4,
+  "main_max_metric_error": 1.4901161193847656e-08,
+  "fusion_max_error": 1.1680000000513502e-07,
+  "external_max_metric_error": 2.220446049250313e-16,
+  "beta": 0.25,
+  "alpha": 0.24,
+  "main_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "baseline_seed": 42,
+  "baseline_epochs": {
+    "IsolationForest": null,
+    "AE": 8,
+    "GANomaly": 30
+  },
+  "table2_original_not_traced": true,
+  "historical_alpha_selection_not_proven": true
+}

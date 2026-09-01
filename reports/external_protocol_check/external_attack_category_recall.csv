@@ -1,0 +1,9 @@
+dataset,detector,attack_category,n_attack_windows,recall_calibration,recall_oracle,note
+TON_IoT,ganomaly,backdoor,19938,1.0,1.0,
+TON_IoT,ganomaly,mitm,91,1.0,0.25274725274725274,
+TON_IoT,iforest,backdoor,19938,0.0770388203430635,1.0,low calibration-threshold recall; interpret as CAPAD-revealed failure boundary rather than hidden error
+TON_IoT,iforest,mitm,91,1.0,1.0,
+TON_IoT,mlp_ae,backdoor,19938,1.0,0.999448289698064,
+TON_IoT,mlp_ae,mitm,91,1.0,0.8351648351648352,
+TON_IoT,tcn_wgan_gp_case,backdoor,19938,0.9719630855652522,1.0,
+TON_IoT,tcn_wgan_gp_case,mitm,91,0.989010989010989,1.0,

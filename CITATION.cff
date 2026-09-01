@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the CAPAD manuscript and identify the repository commit used."
+type: software
+title: "CAPAD Reproducibility Artifacts: Code, Configurations, and Experimental Results"
+authors:
+  - family-names: Li
+    given-names: Jie
+  - family-names: Zhang
+    given-names: Kangning
+  - family-names: Yang
+    given-names: Rui
+  - family-names: Liu
+    given-names: Ruijun
+repository-code: "https://github.com/yitahutu79/attack"
+abstract: "Code, configurations and saved experimental results for a detector-agnostic evaluation and audit framework for window-level network intrusion detection."
+keywords:
+  - network intrusion detection
+  - calibration
+  - reproducibility
+  - CAPAD

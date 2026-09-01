@@ -26,14 +26,14 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-ATTACK = ROOT / "attack"
+ATTACK = ROOT
 if str(ATTACK) not in sys.path:
     sys.path.insert(0, str(ATTACK))
 
-from attack.dataset_loaders import (  # noqa: E402
+from dataset_loaders import (  # noqa: E402
     WindowedDataset,
     _fit_scaler,
     _frame_to_numeric_and_labels,
@@ -436,6 +436,9 @@ def main() -> None:
     ap.add_argument("--hidden-channels", nargs="+", type=int, default=[128, 128])
     ap.add_argument("--dropout", type=float, default=0.2)
     ap.add_argument("--lr", type=float, default=3e-4)
+    ap.add_argument("--gan-loss", choices=["vanilla", "wgan-gp"], default="vanilla")
+    ap.add_argument("--gp-lambda", type=float, default=10.0)
+    ap.add_argument("--n-critic", type=int, default=5)
     ap.add_argument("--target-fpr", type=float, default=0.05)
     ap.add_argument("--disc-pooling", choices=["attn", "mean"], default="attn")
     ap.add_argument("--score-mode", choices=["prob", "fused", "feat_l2", "feat_mahal"], default="prob")
@@ -723,7 +726,9 @@ def main() -> None:
             d_optimizer,
             criterion,
             args.latent_dim,
-            gan_loss="vanilla",
+            gan_loss=str(args.gan_loss),
+            gp_lambda=float(args.gp_lambda),
+            n_critic=int(args.n_critic),
             progress=True,
             desc=f"train ep{epoch}/{args.epochs}",
         )
@@ -842,7 +847,9 @@ def main() -> None:
         "test_anomaly_ratio": float(y_true.mean()) if len(y_true) else 0.0,
         "model": {
             "disc_pooling": str(args.disc_pooling),
-            "gan_loss": "vanilla",
+            "gan_loss": str(args.gan_loss),
+            "gp_lambda": float(args.gp_lambda),
+            "n_critic": int(args.n_critic),
             "weight_norm_disabled": True,
         },
         "score_mode": str(args.score_mode),

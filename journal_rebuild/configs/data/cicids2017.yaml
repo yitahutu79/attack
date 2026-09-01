@@ -1,0 +1,37 @@
+{
+  "dataset_name": "cicids2017",
+  "data_dir": "dataset/CICIDS2017",
+  "include_files": [
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-workingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+  ],
+  "excluded_files": [
+    "Monday-WorkingHours.pcap_ISCX.csv"
+  ],
+  "train_files": [
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-workingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+  ],
+  "test_files": [
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+  ],
+  "window_size": 128,
+  "stride": 16,
+  "anomaly_ratio": 0.15,
+  "calibration_ratio": 0.2,
+  "scaler": "minmax",
+  "clip_minmax": true,
+  "manifest_path": "journal_rebuild/data/manifests/canonical_split_manifest.csv",
+  "data_manifest_path": "journal_rebuild/data/manifests/data_manifest.json",
+  "scaler_path": "journal_rebuild/data/processed/scaler.pkl",
+  "processed_dir": "journal_rebuild/data/processed"
+}

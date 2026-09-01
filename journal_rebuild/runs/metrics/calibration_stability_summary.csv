@@ -1,0 +1,3 @@
+model,threshold_mean,threshold_std,threshold_mean_std,threshold_cv,calibration_empirical_fpr_mean_std,test_benign_fpr_mean_std,abs_test_fpr_minus_target_mean_std,calibration_score_mean_mean_std,calibration_score_std_mean_std,test_benign_score_mean_mean_std,test_benign_score_std_mean_std,wasserstein_distance_mean_std,ks_statistic_mean_std
+tcn_gan,0.2647108756005764,0.11547016885984236,0.2647±0.1155,0.43621240947453893,0.2500±0.0000,0.1141±0.0429,0.1359±0.0429,0.1709±0.0694,0.1375±0.0556,0.1320±0.0705,0.1165±0.0296,0.0525±0.0274,0.1609±0.0493
+tcn_wgan_gp,0.17357270643115044,0.06380232315982973,0.1736±0.0638,0.3675826947201381,0.2500±0.0000,0.1105±0.0182,0.1395±0.0182,0.1154±0.0413,0.0922±0.0557,0.0874±0.0134,0.0684±0.0094,0.0337±0.0253,0.1635±0.0424

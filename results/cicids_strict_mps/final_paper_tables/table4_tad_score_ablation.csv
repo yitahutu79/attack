@@ -1,4 +1,0 @@
-score_mode,target_fpr,observed_test_benign_fpr,precision,recall,F1,AUC,AP
-critic_only,0.2500,0.0591,0.9125,0.8419,0.8758,0.9536,0.9509
-feature_deviation_only,0.2500,0.0496,0.9337,0.9536,0.9436,0.9768,0.9616
-fused (alpha=0.24),0.2500,0.0460,0.9384,0.9568,0.9475,0.9783,0.9631

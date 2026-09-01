@@ -1,0 +1,168 @@
+{
+  "anomaly_ratio": 0.15,
+  "categorical_feature_count": 24,
+  "categorical_vocab_fit_source": "model_train_benign",
+  "contamination": {
+    "independent_calibration_benign": {
+      "non_benign_rows_dropped": 2,
+      "rows_before_drop": 41834
+    },
+    "model_train_benign": {
+      "non_benign_rows_dropped": 0,
+      "rows_before_drop": 200898
+    },
+    "reference_benign": {
+      "non_benign_rows_dropped": 2,
+      "rows_before_drop": 5827
+    },
+    "test": {
+      "non_benign_rows_dropped": 0,
+      "rows_before_drop": 339027
+    }
+  },
+  "data_manifest_hash": "9671d15fff574bba086ff30c4763a24529b1dbffae3dd19b1953c890ae7dc734",
+  "data_quality": {
+    "categorical_vocab": {
+      "conn_state": [
+        "oth",
+        "rej",
+        "rsto",
+        "rstos0",
+        "rstr",
+        "rstrh",
+        "s0",
+        "s1",
+        "s2",
+        "s3",
+        "sf",
+        "sh",
+        "shr",
+        "UNK"
+      ],
+      "proto": [
+        "icmp",
+        "tcp",
+        "udp",
+        "UNK"
+      ],
+      "service": [
+        "MISSING",
+        "dhcp",
+        "dns",
+        "http",
+        "ssl",
+        "UNK"
+      ]
+    },
+    "drop_missing_ratio_threshold": 0.995,
+    "numeric_drop_reasons": {}
+  },
+  "dataset_name": "ton_iot_candidate1",
+  "dropped_short_records": 6,
+  "feature_count": 38,
+  "feature_names": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "missed_bytes",
+    "src_pkts",
+    "src_ip_bytes",
+    "dst_pkts",
+    "dst_ip_bytes",
+    "dns_qclass",
+    "dns_qtype",
+    "dns_rcode",
+    "http_request_body_len",
+    "http_response_body_len",
+    "http_status_code",
+    "proto__icmp",
+    "proto__tcp",
+    "proto__udp",
+    "proto__UNK",
+    "service__MISSING",
+    "service__dhcp",
+    "service__dns",
+    "service__http",
+    "service__ssl",
+    "service__UNK",
+    "conn_state__oth",
+    "conn_state__rej",
+    "conn_state__rsto",
+    "conn_state__rstos0",
+    "conn_state__rstr",
+    "conn_state__rstrh",
+    "conn_state__s0",
+    "conn_state__s1",
+    "conn_state__s2",
+    "conn_state__s3",
+    "conn_state__sf",
+    "conn_state__sh",
+    "conn_state__shr",
+    "conn_state__UNK"
+  ],
+  "feature_path": "journal_rebuild/data/ton_iot_candidate1/processed/feature_names.json",
+  "imputer_path": "journal_rebuild/data/ton_iot_candidate1/processed/imputer.json",
+  "manifest_hash": "d0fc8ba68b911884dbbb29a6ca7492c4cff570771cbeebc9b0044d9352dccc90",
+  "manifest_path": "journal_rebuild/data/ton_iot_candidate1/manifests/canonical_split_manifest.csv",
+  "mapping_path": "journal_rebuild/data/ton_iot_candidate1/processed/mappings.json",
+  "numeric_feature_count": 14,
+  "relevant_files": [
+    "Network_dataset_1.csv",
+    "Network_dataset_22.csv",
+    "Network_dataset_23.csv"
+  ],
+  "scaler_fit_source": "model_train_benign",
+  "scaler_hash": "fac8cb22435677da88ffacb0c232d73ec982b9cd4bf7613a46612decb900194b",
+  "scaler_path": "journal_rebuild/data/ton_iot_candidate1/processed/scaler.pkl",
+  "source_file_hashes": {
+    "Network_dataset_1.csv": "37ea5238fcd2a7a18574b8e37e0427086c6c34d03a22f690256fc925946c0448",
+    "Network_dataset_22.csv": "a1f6009f2be53bc1fba90f044d07ff5a9c5cfe4912b56690d8f02fb75aa335c0",
+    "Network_dataset_23.csv": "e89c54673961c2b260265cdd3f6c50355369f8a80e63c31999df04b0a757f213"
+  },
+  "split_definition": {
+    "independent_calibration_benign": "fixed candidate1 benign calibration interval after stable ts sort; non-benign contaminants dropped if present",
+    "model_train_benign": "fixed candidate1 benign interval after stable ts sort; non-benign contaminants dropped if present",
+    "reference_benign": "fixed candidate1 benign reference interval after stable ts sort; non-benign contaminants dropped if present",
+    "test": "fixed candidate1 mixed interval after stable ts sort, preserving benign and attack rows"
+  },
+  "split_npz_paths": {
+    "independent_calibration_benign": "journal_rebuild/data/ton_iot_candidate1/processed/independent_calibration_benign_records.npz",
+    "model_train_benign": "journal_rebuild/data/ton_iot_candidate1/processed/model_train_benign_records.npz",
+    "reference_benign": "journal_rebuild/data/ton_iot_candidate1/processed/reference_benign_records.npz",
+    "test": "journal_rebuild/data/ton_iot_candidate1/processed/test_records.npz"
+  },
+  "split_ranges": {
+    "independent_calibration_benign": [
+      1556423589,
+      1556423842
+    ],
+    "model_train_benign": [
+      1554198358,
+      1554364211
+    ],
+    "reference_benign": [
+      1556423460,
+      1556423585
+    ],
+    "test": [
+      1556485532,
+      1556549156
+    ]
+  },
+  "split_record_counts": {
+    "independent_calibration_benign": 41832,
+    "model_train_benign": 200898,
+    "reference_benign": 5825,
+    "test": 339027
+  },
+  "split_window_counts": {
+    "independent_calibration_benign": 2607,
+    "model_train_benign": 12549,
+    "reference_benign": 357,
+    "test": 21181
+  },
+  "stride": 16,
+  "window_manifest_hash": "144043b8cbe1bfe5b0e3d287f04a1bc0c56e6127872d6ddc22abfee0f73ef7f2",
+  "window_manifest_path": "journal_rebuild/data/ton_iot_candidate1/manifests/window_manifest.csv",
+  "window_size": 128
+}

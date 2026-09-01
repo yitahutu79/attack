@@ -1,4 +1,0 @@
-Dataset,Role,target_fpr,AUC,AP,observed_test_benign_fpr,Precision,Recall,F1,Interpretation
-CICIDS2017,main evidence chain,0.25,0.978349,0.96312,0.046023,0.938395,0.956847,0.947531,main strict evidence chain
-SWaT,supplementary industrial-control validation,0.05,0.9904439550879482,0.9977442525541758,0.0,0.9999999999999992,0.9899817850637516,0.9949656750567072,supplementary industrial-control validation; strong performance
-UNSW-NB15,distribution-shift stress test,0.05,0.8061246730601569,0.7548750835193664,0.0274629468177855,0.2409638554216838,0.0070323488045007,0.0136658694908912,distribution-shift stress test; moderate ranking but poor calibrated recall

@@ -1,0 +1,4 @@
+split_role,records,windows,min_ts,max_ts,source_files
+model_train_benign,200898,12549,1554198358,1554364211,Network_dataset_1.csv
+independent_calibration_benign,41832,2607,1556423589,1556423842,Network_dataset_22.csv
+test,339027,21181,1556485532,1556549156,"Network_dataset_22.csv,Network_dataset_23.csv"

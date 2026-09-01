@@ -1,0 +1,263 @@
+{
+  "backfilled": true,
+  "format_version": 2,
+  "legacy_resolved_config": {
+    "alpha": 0.24,
+    "data_config": {
+      "anomaly_ratio": 0.15,
+      "calibration_ratio": 0.2,
+      "clip_minmax": true,
+      "data_dir": "dataset/CICIDS2017",
+      "dataset_name": "cicids2017",
+      "scaler": "minmax",
+      "stride": 16,
+      "target_fpr": 0.25,
+      "test_files": [
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+      ],
+      "train_files": [
+        "Tuesday-WorkingHours.pcap_ISCX.csv",
+        "Wednesday-workingHours.pcap_ISCX.csv",
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+      ],
+      "window_size": 128
+    },
+    "dataset": "cicids2017",
+    "device": "mps",
+    "epochs": 8,
+    "expected_window_counts": {
+      "independent_calibration_benign": 16591,
+      "model_train_benign": 66366,
+      "test": 43897
+    },
+    "loss_type": "bce",
+    "manifest_hash": "95475b7c92d7bebe7be51c1e8e9d09e3ff3f5beb86ee97bc0b4a424b146c1ad2",
+    "model_config": {
+      "alpha": 0.24,
+      "batch_size": 256,
+      "device": "auto",
+      "dropout": 0.2,
+      "epochs": 8,
+      "eval_batch_size": 512,
+      "gp_lambda": 0.0,
+      "hidden_channels": [
+        128,
+        128
+      ],
+      "latent_dim": 64,
+      "loss_type": "bce",
+      "model_name": "tcn_gan",
+      "n_critic": 1,
+      "optimizer": {
+        "betas": [
+          0.5,
+          0.999
+        ],
+        "lr": 0.0003,
+        "name": "adam"
+      },
+      "pooling": "attn",
+      "score_mode": "fused"
+    },
+    "model_name": "tcn_gan",
+    "project": "journal_rebuild",
+    "scaler_hash": "c9d13576149dcb7f87f2236bc41a3e982ba9ee3125b626b38515e2ca9278e9e8",
+    "score_mode": "fused",
+    "seed": 2,
+    "source_file_hashes": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "Friday-WorkingHours-Morning.pcap_ISCX.csv": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "Tuesday-WorkingHours.pcap_ISCX.csv": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "Wednesday-workingHours.pcap_ISCX.csv": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a"
+    },
+    "stride": 16,
+    "target_fpr": 0.25,
+    "window_size": 128
+  },
+  "research_config": {
+    "calibration_protocol": {
+      "target_fpr": 0.25,
+      "threshold_rule": "quantile_1_minus_target_fpr",
+      "threshold_source": "independent_calibration_benign"
+    },
+    "data_protocol": {
+      "anomaly_ratio": 0.15,
+      "calibration_ratio": 0.2,
+      "clip_minmax": true,
+      "data_dir": "dataset/CICIDS2017",
+      "dataset_name": "cicids2017",
+      "scaler": "minmax",
+      "stride": 16,
+      "test_files": [
+        "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+      ],
+      "train_files": [
+        "Tuesday-WorkingHours.pcap_ISCX.csv",
+        "Wednesday-workingHours.pcap_ISCX.csv",
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+      ],
+      "window_size": 128
+    },
+    "dataset": "cicids2017",
+    "feature_names": [
+      "Destination Port",
+      "Flow Duration",
+      "Total Fwd Packets",
+      "Total Backward Packets",
+      "Total Length of Fwd Packets",
+      "Total Length of Bwd Packets",
+      "Fwd Packet Length Max",
+      "Fwd Packet Length Min",
+      "Fwd Packet Length Mean",
+      "Fwd Packet Length Std",
+      "Bwd Packet Length Max",
+      "Bwd Packet Length Min",
+      "Bwd Packet Length Mean",
+      "Bwd Packet Length Std",
+      "Flow Bytes/s",
+      "Flow Packets/s",
+      "Flow IAT Mean",
+      "Flow IAT Std",
+      "Flow IAT Max",
+      "Flow IAT Min",
+      "Fwd IAT Total",
+      "Fwd IAT Mean",
+      "Fwd IAT Std",
+      "Fwd IAT Max",
+      "Fwd IAT Min",
+      "Bwd IAT Total",
+      "Bwd IAT Mean",
+      "Bwd IAT Std",
+      "Bwd IAT Max",
+      "Bwd IAT Min",
+      "Fwd PSH Flags",
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "Fwd Header Length",
+      "Bwd Header Length",
+      "Fwd Packets/s",
+      "Bwd Packets/s",
+      "Min Packet Length",
+      "Max Packet Length",
+      "Packet Length Mean",
+      "Packet Length Std",
+      "Packet Length Variance",
+      "FIN Flag Count",
+      "SYN Flag Count",
+      "RST Flag Count",
+      "PSH Flag Count",
+      "ACK Flag Count",
+      "URG Flag Count",
+      "CWE Flag Count",
+      "ECE Flag Count",
+      "Down/Up Ratio",
+      "Average Packet Size",
+      "Avg Fwd Segment Size",
+      "Avg Bwd Segment Size",
+      "Fwd Header Length.1",
+      "Fwd Avg Bytes/Bulk",
+      "Fwd Avg Packets/Bulk",
+      "Fwd Avg Bulk Rate",
+      "Bwd Avg Bytes/Bulk",
+      "Bwd Avg Packets/Bulk",
+      "Bwd Avg Bulk Rate",
+      "Subflow Fwd Packets",
+      "Subflow Fwd Bytes",
+      "Subflow Bwd Packets",
+      "Subflow Bwd Bytes",
+      "Init_Win_bytes_forward",
+      "Init_Win_bytes_backward",
+      "act_data_pkt_fwd",
+      "min_seg_size_forward",
+      "Active Mean",
+      "Active Std",
+      "Active Max",
+      "Active Min",
+      "Idle Mean",
+      "Idle Std",
+      "Idle Max",
+      "Idle Min"
+    ],
+    "loss_type": "bce",
+    "manifest_hash": "95475b7c92d7bebe7be51c1e8e9d09e3ff3f5beb86ee97bc0b4a424b146c1ad2",
+    "model_name": "tcn_gan",
+    "model_protocol": {
+      "alpha": 0.24,
+      "batch_size": 256,
+      "dropout": 0.2,
+      "epochs": 8,
+      "eval_batch_size": 512,
+      "gp_lambda": 0.0,
+      "hidden_channels": [
+        128,
+        128
+      ],
+      "latent_dim": 64,
+      "loss_type": "bce",
+      "model_name": "tcn_gan",
+      "n_critic": 1,
+      "optimizer": {
+        "betas": [
+          0.5,
+          0.999
+        ],
+        "lr": 0.0003,
+        "name": "adam"
+      },
+      "pooling": "attn",
+      "score_mode": "fused"
+    },
+    "project": "journal_rebuild",
+    "scaler_hash": "c9d13576149dcb7f87f2236bc41a3e982ba9ee3125b626b38515e2ca9278e9e8",
+    "scoring_protocol": {
+      "alpha": 0.24,
+      "normalization": "minmax_using_train_benign_reference_windows",
+      "score_mode": "fused",
+      "sd_definition": "1 - sigmoid(discriminator_logit)",
+      "sf_definition": "l2_distance_from_train_benign_embedding_mean"
+    },
+    "seed": 2,
+    "source_file_hashes": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "Friday-WorkingHours-Morning.pcap_ISCX.csv": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "Tuesday-WorkingHours.pcap_ISCX.csv": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "Wednesday-workingHours.pcap_ISCX.csv": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a"
+    },
+    "split_window_counts": {
+      "independent_calibration_benign": 16591,
+      "model_train_benign": 66366,
+      "test": 43897
+    }
+  },
+  "research_config_hash": "c5c1bcfe4b0560a2fb87a151b497ee7168b357fdaa16cd750e2f99dff4087a88",
+  "runtime_metadata": {
+    "checkpoint_path": "journal_rebuild/runs/checkpoints/formal_tcn_gan_seed2/checkpoint.pt",
+    "generated_at": "2026-07-14T19:30:45Z",
+    "git_commit": "f79c3078836c1bd1286338e544aae96d02334b24",
+    "metrics_path": "journal_rebuild/runs/metrics/formal_tcn_gan_seed2/metrics.json",
+    "python_executable": "/Users/lijie/miniforge3/envs/attack/bin/python",
+    "repo_root": "/Users/lijie/Desktop/work/attack",
+    "requested_device": "auto",
+    "resolved_config_path": "journal_rebuild/runs/checkpoints/formal_tcn_gan_seed2/resolved_config.yaml",
+    "resolved_device": "mps",
+    "run_id": "formal_tcn_gan_seed2",
+    "scores_calibration_path": "journal_rebuild/runs/scores/formal_tcn_gan_seed2/scores_calibration.csv",
+    "scores_test_path": "journal_rebuild/runs/scores/formal_tcn_gan_seed2/scores_test.csv",
+    "skip_existing": true,
+    "training_log_path": "journal_rebuild/runs/logs/formal_tcn_gan_seed2/training_log.csv"
+  },
+  "runtime_metadata_hash": "744f816f89e65bff94e0e3f298df6da0382f72c0809a40157e7c7ed80ceb4b7c"
+}

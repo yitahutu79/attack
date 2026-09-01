@@ -1,73 +1,53 @@
-# macOS
-.DS_Store
-
-# Python cache
-__pycache__/
-**/__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
-.mypy_cache/
-
-_archive/
-
+# Private manuscripts, intermediate writing and presentations
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.tex
+*.bib
+*.pdf
+paper/
+paper_acsac/
+paper_path_prediction/
+latex-conversion/
+# Raw/processed data and model binaries are obtained or rebuilt locally
 dataset/
-
 external/
-
-# LaTeX build artifacts
-paper/*.aux
-paper/*.bbl
-paper/*.blg
-paper/*.fdb_latexmk
-paper/*.fls
-paper/*.log
-paper/*.out
-paper/*.synctex.gz
-paper_acsac/*.aux
-paper_acsac/*.bbl
-paper_acsac/*.blg
-paper_acsac/*.fdb_latexmk
-paper_acsac/*.fls
-paper_acsac/*.log
-paper_acsac/*.out
-paper_acsac/*.synctex.gz
-paper_acsac/*.toc
-
-# Runtime logs and temporary outputs
-*.pid
-*.tmp
-*.temp
-results/logs/
-results/**/*.log
-results/**/*.err
-external/**/Results_archive/**/*.log
-external/**/Results_archive/**/*.err
-
-# Model checkpoints and large binary artifacts
+_archive/
+*.npz
+*.npy
+*.npy.gz
+*.pkl
+*.pickle
 *.pt
 *.pth
 *.ckpt
 *.bin
-*.npy
-*.npy.gz
-
-# Keep curated result tables/docs, but ignore notebook noise
-.ipynb_checkpoints/
-
-# Editor / IDE
-.vscode/
+# Credentials and machine-specific state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.venv/
+venv/
 .idea/
-
-# Local writeups / briefing slides (not for artifact upload)
-presentation_week_update_*.html
-*_progress_briefing_*.html
-*_reading_priority*.md
-UPLOAD_INVENTORY_ATTACK.md
-
-# Keep repo artifact-focused: ignore secondary docs/notes inside outputs/modules
-results/**/*.md
-baselines/README.md
-models/README.md
-pipelines/README.md
-dataset/**/README.md
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.cache/
+.mplconfig/
+# Recomputed reports are distinct from the saved published evidence
+verification/
+*.log
+*.err
+*.tmp
+*.pid
+*.aux
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz

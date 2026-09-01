@@ -1,0 +1,83 @@
+{
+  "auxiliary_reference_segment": {
+    "exists_in_source_artifacts": true,
+    "records": 5825,
+    "role": "reference_benign",
+    "usage_in_this_external_protocol_check": "not required; train benign is used as the normal reference for detector-agnostic score normalization",
+    "windows": 357
+  },
+  "dataset": "TON_IoT",
+  "dataset_variant": "Processed_Network_dataset candidate1",
+  "manifest_hash": "368e4fe42d0d24ea635acddcf453ae3302ddaa3af81c98428caf175adb7640d9",
+  "selected_roles": [
+    "model_train_benign",
+    "independent_calibration_benign",
+    "test"
+  ],
+  "source_config": "journal_rebuild/configs/data/ton_iot_candidate1.yaml",
+  "source_data_manifest": "journal_rebuild/data/ton_iot_candidate1/manifests/data_manifest.json",
+  "source_record_manifest": "journal_rebuild/data/ton_iot_candidate1/manifests/canonical_split_manifest.csv",
+  "source_record_manifest_hash": "d0fc8ba68b911884dbbb29a6ca7492c4cff570771cbeebc9b0044d9352dccc90",
+  "source_scaler_hash": "fac8cb22435677da88ffacb0c232d73ec982b9cd4bf7613a46612decb900194b",
+  "source_window_manifest": "journal_rebuild/data/ton_iot_candidate1/manifests/window_manifest.csv",
+  "source_window_manifest_hash": "144043b8cbe1bfe5b0e3d287f04a1bc0c56e6127872d6ddc22abfee0f73ef7f2",
+  "split_ranges": {
+    "independent_calibration_benign": [
+      1556423589,
+      1556423842
+    ],
+    "model_train_benign": [
+      1554198358,
+      1554364211
+    ],
+    "reference_benign": [
+      1556423460,
+      1556423585
+    ],
+    "test": [
+      1556485532,
+      1556549156
+    ]
+  },
+  "split_summary": [
+    {
+      "max_ts": 1554364211,
+      "min_ts": 1554198358,
+      "records": 200898,
+      "source_files": "Network_dataset_1.csv",
+      "split_role": "model_train_benign",
+      "windows": 12549
+    },
+    {
+      "max_ts": 1556423842,
+      "min_ts": 1556423589,
+      "records": 41832,
+      "source_files": "Network_dataset_22.csv",
+      "split_role": "independent_calibration_benign",
+      "windows": 2607
+    },
+    {
+      "max_ts": 1556549156,
+      "min_ts": 1556485532,
+      "records": 339027,
+      "source_files": "Network_dataset_22.csv,Network_dataset_23.csv",
+      "split_role": "test",
+      "windows": 21181
+    }
+  ],
+  "strict_time_sort": true,
+  "stride": 16,
+  "target_fpr": 0.25,
+  "test_attack_distribution": [
+    {
+      "attack_category": "backdoor",
+      "n_windows": 19938
+    },
+    {
+      "attack_category": "mitm",
+      "n_windows": 91
+    }
+  ],
+  "time_sort_rule": "stable sort by ts, then file order, then original row",
+  "window_size": 128
+}
